@@ -1,7 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 
-const math = require("remark-math");
-const katex = require("rehype-katex");
+import math from 'remark-math';
+import katex from 'rehype-katex';
 
 module.exports = {
   title: "Puffer UniFi Docs",
