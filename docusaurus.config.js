@@ -120,7 +120,7 @@ module.exports = {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: "https://github.com/PufferFinance/website-docs/tree/main",
+          editUrl: "https://github.com/PufferFinance/unifi-docs",
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
