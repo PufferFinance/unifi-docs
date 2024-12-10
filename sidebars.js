@@ -21,7 +21,8 @@ const sidebars = {
   docSidebar: [
     "intro",
     "move-funds",
-    "bridge-ui"
+    "bridge-ui",
+    "tee-multi-prover",
   ],
   developersSidebar: [
     {
