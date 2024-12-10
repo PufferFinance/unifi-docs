@@ -1,12 +1,11 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 
-const math = require("remark-math");
-const katex = require("rehype-katex");
+import math from 'remark-math';
+import katex from 'rehype-katex';
 
 module.exports = {
   title: "Puffer UniFi Docs",
   tagline: "Documentation for the Puffer UniFi Rollup",
-  //TODO: Change URL after proper domain is set up
   url: "https://docs.puffer.fi",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -119,10 +118,16 @@ module.exports = {
         docs: {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
-          editUrl: "https://github.com/PufferFinance/website-docs/tree/main",
+          editUrl: "https://github.com/PufferFinance/unifi-docs",
           remarkPlugins: [math],
           rehypePlugins: [katex],
+        },
+        blog: {
+          showReadingTime: true,
+          editUrl: "https://github.com/PufferFinance/unifi-docs",
+        },
+        theme: {
+          customCss: require.resolve("./src/css/custom.css"),
         },
       },
     ],
@@ -132,13 +137,13 @@ module.exports = {
       href: "https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css",
       type: "text/css",
       integrity:
-        "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
+          "sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM",
       crossorigin: "anonymous",
     },
   ],
   plugins: [
     [
-      require.resolve("@easyops-cn/docusaurus-search-local", "@rehype-katex"),
+      require.resolve("@easyops-cn/docusaurus-search-local"),
       { indexBlog: false, docsRouteBasePath: "/", indexPages: true },
     ],
   ],
