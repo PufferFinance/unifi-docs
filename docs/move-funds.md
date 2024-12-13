@@ -30,7 +30,7 @@ To connect to the UniFi Helder Testnet, follow these steps:
 
 ## 3. Get L2 Testnet Tokens
 
-You can get tokens from the [Telegram Faucet Bot](https://t.me/unfitestnetfaucet_bot).
+You can get tokens from the [Telegram Faucet Bot](https://testnet-faucet-unifi.puffer.fi).
 
 ## Additional Resources
 
