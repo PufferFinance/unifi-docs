@@ -22,7 +22,6 @@ const sidebars = {
     "intro",
     "move-funds",
     "bridge-ui",
-    "tee-multi-prover",
   ],
   developersSidebar: [
     {
@@ -32,10 +31,26 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Concepts",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: false,
+      items: [
+        {
+          type: "doc", 
+          label: "TEE Multi Prover",
+          id: "developers/concepts/tee-multi-prover",
+        },
+      ]
+    },
+    {
+      type: "category",
       label: "Deploy a Smart Contract",
       link: {
         type: "generated-index",
       },
+      collapsed: false,
       items: [
         {
           type: "doc", 
@@ -55,6 +70,7 @@ const sidebars = {
       link: {
         type: "generated-index",
       },
+      collapsed: false,
       items: [
         {
           type: "doc",

@@ -6,7 +6,7 @@ import katex from 'rehype-katex';
 module.exports = {
   title: "Puffer UniFi Docs",
   tagline: "Documentation for the Puffer UniFi Rollup",
-  url: "https://docs.puffer.fi",
+  url: "https://docs-unifi.puffer.fi",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -118,7 +118,6 @@ module.exports = {
         docs: {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          // Please change this to your repo.
           editUrl: "https://github.com/PufferFinance/unifi-docs/tree/main",
           remarkPlugins: [math],
           rehypePlugins: [katex],

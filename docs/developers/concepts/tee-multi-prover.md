@@ -1,6 +1,6 @@
 ---
 title: TEE Multi Prover
-slug: /tee-multi-prover
+slug: /developers/concepts/tee-multi-prover
 ---
 
 ## Background
