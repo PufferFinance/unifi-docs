@@ -7,7 +7,7 @@ slug: /developers/rollup/smart-contracts/hardhat
 
 Before you begin, ensure you:
 
-1. [Set up your wallet and have bridged UniFi tokens successfully](../../../move-funds.md).
+1. [Set up your wallet and acquired Tesntet tokens](../../../acquire-testnet-tokens.md).
 2. [Set up your Hardhat environment](https://hardhat.org/tutorial/setting-up-the-environment#2.-setting-up-the-environment).
 
 ## Create a Hardhat project

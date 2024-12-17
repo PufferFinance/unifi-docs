@@ -36,7 +36,7 @@ const sidebars = {
       ]
     },
 
-    "move-funds",
+    "acquire-testnet-tokens",
     "bridge-ui",
   ],
   developersSidebar: [
