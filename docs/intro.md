@@ -1,11 +1,11 @@
 ---
-title: About UniFi
+title: Hello UniFi 🐡
 slug: /
 ---
 
 # About UniFi Rollup
 
-Puffer's UniFi is an Ethereum Layer 2 (L2) rollup solution designed to address the fragmentation of Ethereum,
+Puffer's UniFi is an Ethereum Layer 2 (L2) based rollup solution designed to address the fragmentation of Ethereum,
 enhance value within the L1 network, and provide credibly neutral transaction sequencing, all while maintaining
 an intuitive user experience that supports mass adoption.
 

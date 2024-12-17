@@ -20,6 +20,22 @@ const sidebars = {
 
   docSidebar: [
     "intro",
+    {
+      type: "category",
+      label: "Protocol",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: false,
+      items: [
+        {
+          type: "doc", 
+          label: "Overview",
+          id: "protocol/overview",
+        },
+      ]
+    },
+
     "move-funds",
     "bridge-ui",
   ],
