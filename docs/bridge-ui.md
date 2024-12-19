@@ -3,6 +3,10 @@ title: How to use UniFi Bridge
 slug: /bridge-ui
 ---
 
+:::info
+   Bridging is currently paused as testnet access is being rolled out gradually. Bridging will be enabled in the next few weeks.
+:::
+
 # Using the UniFi Bridge
 
 In order to use the UniFi Rollup Bridge, you need to have a compatible wallet and some funds on the L1 network.
