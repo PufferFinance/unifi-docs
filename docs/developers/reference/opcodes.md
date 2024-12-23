@@ -23,7 +23,7 @@ The following opcodes are not supported in UniFi:
 
 | Opcode | Name      | Solidity Equivalent | Rollup Behaviour                             | Ethereum L1 Behaviour                |
 |--------|-----------|---------------------|----------------------------------------------|--------------------------------------|
-| 41     | COINBASE  | block.coinbase      | Returns the address of the L2 block proposer | Gets the block’s beneficiary address |
+| 41     | COINBASE  | block.coinbase      | Returns the address of the L2 block proposer | Gets the block's beneficiary address |
 | 42     | TIMESTAMP | block.timestamp     | Timestamp of the L2 block                    | Timestamp of the L1 block            |
 | 43     | NUMBER    | block.number        | L2 block number                              | Gets the L1 block number             |
 | 48     | BASEFEE   | block.basefee       | Returns the L2 base fee                      | Returns the base fee                 |
