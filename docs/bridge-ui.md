@@ -3,6 +3,10 @@ title: How to use UniFi Bridge
 slug: /bridge-ui
 ---
 
+:::info
+   Bridging is currently paused as testnet access is being rolled out gradually. Bridging will be enabled in the next few weeks.
+:::
+
 # Using the UniFi Bridge
 
 In order to use the UniFi Rollup Bridge, you need to have a compatible wallet and some funds on the L1 network.
@@ -10,8 +14,10 @@ This guide will help you bridge your funds from the L1 network to the UniFi Roll
 
 ## How to bridge (deposit) ETH to UniFi
 
+
 1. Open the [UniFi Rollup Bridge UI](https://testnet-bridge.unifi.puffer.fi/).
 2. Connect your preferred wallet.
+
    ![Connecting the wallet](/img/rollup/connect-wallet.png)
 3. Switch your connected network to L1 (Holesky).
 

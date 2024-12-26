@@ -20,8 +20,24 @@ const sidebars = {
 
   docSidebar: [
     "intro",
-    "move-funds",
-    "bridge-ui"
+    {
+      type: "category",
+      label: "Protocol",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: false,
+      items: [
+        {
+          type: "doc", 
+          label: "Overview",
+          id: "protocol/overview",
+        },
+      ]
+    },
+
+    "acquire-testnet-tokens",
+    "bridge-ui",
   ],
   developersSidebar: [
     {
@@ -31,10 +47,26 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Concepts",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: false,
+      items: [
+        {
+          type: "doc", 
+          label: "TEE Multi Prover",
+          id: "developers/concepts/tee-multi-prover",
+        },
+      ]
+    },
+    {
+      type: "category",
       label: "Deploy a Smart Contract",
       link: {
         type: "generated-index",
       },
+      collapsed: false,
       items: [
         {
           type: "doc", 
@@ -54,6 +86,7 @@ const sidebars = {
       link: {
         type: "generated-index",
       },
+      collapsed: false,
       items: [
         {
           type: "doc",
