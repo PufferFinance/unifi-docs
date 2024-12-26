@@ -23,10 +23,10 @@ To connect to the UniFi Testnet, follow these steps:
 2. Select **Add network** → **Add a network manually**.
 3. Enter the following details:
    - **Network Name**: `UniFi Testnet`
-   - **RPC URL**: TODO:
+   - **RPC URL**: `https://testnet-rpc-unifi.puffer.fi/`
    - **Chain ID**: `8787`
    - **Currency Symbol**: `ETH`
-   - **Block Explorer URL**: TODO:
+   - **Block Explorer URL**: `https://testnet-explorer-unifi.puffer.fi/`
 
 ## 3. Get L2 Testnet Tokens
 
