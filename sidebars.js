@@ -18,11 +18,10 @@ const sidebars = {
 
   // But you can create a sidebar manually
 
-  docSidebar: [
-    "intro",
+  developersSidebar: [
     {
       type: "category",
-      label: "Protocol",
+      label: "Getting Started",
       link: {
         type: "generated-index",
       },
@@ -31,32 +30,17 @@ const sidebars = {
         {
           type: "doc", 
           label: "Overview",
-          id: "protocol/overview",
+          id: "developers/getting-started/index",
         },
-      ]
-    },
-
-    "acquire-testnet-tokens",
-    "bridge-ui",
-  ],
-  developersSidebar: [
-    {
-      type: "doc",
-      label: "Getting started",
-      id: "developers/getting-started/index",
-    },
-    {
-      type: "category",
-      label: "Concepts",
-      link: {
-        type: "generated-index",
-      },
-      collapsed: false,
-      items: [
         {
           type: "doc", 
-          label: "TEE Multi Prover",
-          id: "developers/concepts/tee-multi-prover",
+          label: "Testnet Tokens",
+          id: "developers/getting-started/acquire-testnet-tokens",
+        },
+        {
+          type: "doc", 
+          label: "UniFi Native Bridge",
+          id: "developers/getting-started/bridge-ui",
         },
       ]
     },

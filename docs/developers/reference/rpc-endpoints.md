@@ -5,6 +5,8 @@ slug: /developers/rollup/reference/rpc-endpoints
 
 ## UniFi Testnet
 
+You can find access information to UniFi Testnet RPC below:
+
 | Parameter          | Value                                    |
 |--------------------|------------------------------------------|
 | Network Name       | `UniFi Testnet`                          |

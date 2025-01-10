@@ -1,10 +1,10 @@
 ---
 title: How to use UniFi Bridge
-slug: /bridge-ui
+slug: /developers/getting-started/bridge-ui
 ---
 
 :::info
-   Bridging is currently paused as testnet access is being rolled out gradually. Bridging will be enabled in the next few weeks.
+   Bridging is currently paused as testnet access is being rolled out gradually. If you are keen to try out UniFi Testnet, feel free to express your interest [here.](https://forms.gle/ws4YxryeZbXHnfRdA)
 :::
 
 # Using the UniFi Bridge
