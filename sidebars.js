@@ -29,7 +29,7 @@ const sidebars = {
       collapsed: false,
       items: [
         {
-          type: "doc", 
+          type: "doc",
           label: "Overview",
           id: "protocol/overview",
         },
@@ -54,9 +54,14 @@ const sidebars = {
       collapsed: false,
       items: [
         {
-          type: "doc", 
+          type: "doc",
           label: "TEE Multi Prover",
           id: "developers/concepts/tee-multi-prover",
+        },
+        {
+          type: "doc",
+          label: "Gateway",
+          id: "developers/concepts/gateway",
         },
       ]
     },
@@ -69,12 +74,12 @@ const sidebars = {
       collapsed: false,
       items: [
         {
-          type: "doc", 
+          type: "doc",
           label: "Using Foundry",
           id: "developers/rollup/smart-contracts/deploy-foundry",
         },
         {
-          type: "doc", 
+          type: "doc",
           label: "Using Hardhat",
           id: "developers/rollup/smart-contracts/deploy-hardhat",
         }
