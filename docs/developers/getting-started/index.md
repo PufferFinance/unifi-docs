@@ -1,6 +1,6 @@
 ---
 title: Introducing UniFi Rollup 🐡
-slug: /developers/getting-started/index
+slug: /
 ---
 
 # What is Puffer UniFi Rollup?
