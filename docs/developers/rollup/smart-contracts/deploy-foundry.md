@@ -5,9 +5,9 @@ slug: /developers/rollup/smart-contracts/foundry
 
 ## Prerequisite
 
-Before you begin, ensure you have:
+Before you begin, ensure you've:
 
-1. [Set up your wallet and have acquired Testnet tokens](../../../acquire-testnet-tokens.md).
+1. [Set up your wallet and have acquired Testnet tokens](developers/getting-started/acquire-testnet-tokens.md).
 2. Downloaded and installed Foundry:
 
    ```bash
