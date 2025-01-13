@@ -1,6 +1,6 @@
 ---
-title: Overview
-slug: /protocol/overview
+title: UniFi Architecture
+slug: /developers/concepts/architecture
 ---
 
 :::info

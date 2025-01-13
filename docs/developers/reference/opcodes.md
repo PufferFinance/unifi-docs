@@ -1,7 +1,6 @@
 # Opcodes
 
-Since UniFi is based on Taiko, it inherits the same opcode behaviour as Taiko. Unless listed below,
-all opcodes are supported in UniFi and are EVM equivalent.
+All opcodes are supported in UniFi and are EVM equivalent unless stated otherwise.
 The execution of some Opcodes is not verified by the circuits, and not part of the validity proofs.
 
 # Unsupported Opcodes

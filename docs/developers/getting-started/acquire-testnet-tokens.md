@@ -1,6 +1,6 @@
 ---
 title: Acquire Testnet Tokens
-slug: /acquire-testnet-tokens
+slug: /developers/getting-started/acquire-testnet-tokens
 ---
 
 # Acquire Testnet Tokens
