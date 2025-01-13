@@ -19,7 +19,7 @@ const sidebars = {
   // But you can create a sidebar manually
 
   developersSidebar: [
-    "index",
+    "developers/getting-started/index",
     {
       type: "category",
       label: "Getting started",
@@ -31,12 +31,12 @@ const sidebars = {
         {
           type: "doc", 
           label: "Testnet Tokens",
-          id: "acquire-testnet-tokens",
+          id: "developers/getting-started/acquire-testnet-tokens",
         },
         {
           type: "doc", 
           label: "UniFi Native Bridge",
-          id: "bridge-ui",
+          id: "developers/getting-started/bridge-ui",
         },
       ]
     },
