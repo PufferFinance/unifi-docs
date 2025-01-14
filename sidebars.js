@@ -29,12 +29,12 @@ const sidebars = {
       collapsed: false,
       items: [
         {
-          type: "doc", 
+          type: "doc",
           label: "Testnet Tokens",
           id: "developers/getting-started/acquire-testnet-tokens",
         },
         {
-          type: "doc", 
+          type: "doc",
           label: "UniFi Native Bridge",
           id: "developers/getting-started/bridge-ui",
         },
@@ -49,12 +49,12 @@ const sidebars = {
       collapsed: false,
       items: [
         {
-          type: "doc", 
+          type: "doc",
           label: "Using Foundry",
           id: "developers/rollup/smart-contracts/deploy-foundry",
         },
         {
-          type: "doc", 
+          type: "doc",
           label: "Using Hardhat",
           id: "developers/rollup/smart-contracts/deploy-hardhat",
         }
