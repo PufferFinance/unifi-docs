@@ -23,7 +23,7 @@ Gateways provide collateral to be able to enter the lookahead. The collateral is
 
 For example, if Gateway A fails to settle the required batch on the L1 by end of its slots, the next gateway in the lookahead schedule (Gateway B), will have to re-create and settle the L2 batch transaction(s). By doing so, Gateway B:
 
-- can claim part of the collateral of the previous gateway (i.e. the faulty gateway is slashed). The slash amount should be proportional to the number of preconf blocks which haven’t landed
+- can claim part of the collateral of the previous gateway (i.e. the faulty gateway is slashed). The slash amount should be proportional to the number of preconf blocks which haven't landed
 - avoids a L2 reorg and ensures that the L2 advances to where it started issuing preconfs on
 
 In practice, when processing the L2 batch transaction, the inbox contract verifies if the signed blocks are signed by the previous gateway, and if so will slash its collateral and transfer it to the gateway posting the batch instead.
