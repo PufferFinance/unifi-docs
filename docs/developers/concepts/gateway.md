@@ -4,10 +4,10 @@ slug: /developers/concepts/gateway
 ---
 
 ## Overview
-Gateways are a critical component in [based rollups](/#what-is-a-based-rollup). Their primary purpose is to act as the sequencing entities of the rollup, enabling L1 proposers to provide sequencing services even if they lack the sophistication or infrastructure to do so directly. Outsourcing sequencing to sophisticated third parties keeps the proposer set decentralized and neutral, while providing the necessary performance and reliability required by modern high-throughput rollups.
+Gateways are a critical component in based rollups. Their primary purpose is to act as the sequencing entities of the rollup, enabling L1 proposers to provide sequencing services even if they lack the sophistication or infrastructure to do so directly. Outsourcing sequencing to sophisticated third parties keeps the proposer set decentralized and neutral, while providing the necessary performance and reliability required by modern high-throughput rollups.
 
 ## Design
-![Gateway Lookahead](/img/gateway.png)
+![Gateway Lookahead](/img/gateway/gateway.png)
 *(Note: This design represents the ideal approach and may differ from the current implementation, especially during testing phases.)*
 
 L1 proposers establish a schedule of gateways called **lookahead**, which maps L1 slots in an given epoch to gateways. Each gateway holds the write access on the L2 state for a number of L1 slots, and must post these blocks as batches on the L1 via the rollup inbox contract.
