@@ -62,6 +62,31 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Concepts",
+      link: {
+        type: "generated-index",
+      },
+      collapsed: false,
+      items: [
+        {
+          type: "doc", 
+          label: "Architecture",
+          id: "developers/concepts/architecture",
+        },
+        {
+          type: "doc", 
+          label: "Gateway",
+          id: "developers/concepts/gateway",
+        },
+        {
+          type: "doc", 
+          label: "TEE Multi Prover",
+          id: "developers/concepts/tee-multi-prover",
+        }
+      ]
+    },
+    {
+      type: "category",
       label: "Reference",
       link: {
         type: "generated-index",
