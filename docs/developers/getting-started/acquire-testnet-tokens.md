@@ -30,7 +30,7 @@ To connect to the UniFi Testnet, follow these steps:
 
 ## 3. Get L2 Testnet Tokens
 
-You can get tokens from the [Telegram Faucet Bot](https://testnet-faucet-unifi.puffer.fi).
+You can get tokens from the [Testnet Faucet](https://testnet-faucet-unifi.puffer.fi).
 
 ## Additional Resources
 
