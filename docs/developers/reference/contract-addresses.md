@@ -3,31 +3,27 @@ title: Smart Contract Addresses
 slug: /developers/rollup/reference/contract-addresses
 ---
 
-## Holesky Testnet
+## Hoodi Testnet
 
 ### L1 Addresses
 
 | Contract                  | Address                                                                                                                       |
 |---------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| UniFi L1                  | [0x12d30f3584ee969C4131b7d5dCAEe763A378AfD9](https://holesky.etherscan.io/address/0x12d30f3584ee969C4131b7d5dCAEe763A378AfD9) |
-| Rollup Address Manager    | [0x540B8d82e6E11F0a9438fB19f33c85b2B53B49d8](https://holesky.etherscan.io/address/0x540B8d82e6E11F0a9438fB19f33c85b2B53B49d8) |
-| Shared Address Manager    | [0x0F3dD9461Ccf086cC32D38eC8673e541Fc86279d](https://holesky.etherscan.io/address/0x0F3dD9461Ccf086cC32D38eC8673e541Fc86279d) |
-| Attestation Verifier      | [0xCB848506bcB28C86Dd0CCb5905BaBD80CC0277E4](https://holesky.etherscan.io/address/0xCB848506bcB28C86Dd0CCb5905BaBD80CC0277E4) |
-| Automata DCAP Attestation | [0x133303659F51d75ED216FD98a0B70CbCD75339b2](https://holesky.etherscan.io/address/0x133303659F51d75ED216FD98a0B70CbCD75339b2) |
-| Bridge                    | [0x81bfCf0f7196C1772279846625F619f691755120](https://holesky.etherscan.io/address/0x81bfCf0f7196C1772279846625F619f691755120) |
-| Prover Set                | [0x3a4e7187720420FF208AfC4EA2602d3DE2C80E1d](https://holesky.etherscan.io/address/0x3a4e7187720420FF208AfC4EA2602d3DE2C80E1d) |
-| Signal Service            | [0x60646983250313B750D3657C648823d665305299](https://holesky.etherscan.io/address/0x60646983250313B750D3657C648823d665305299) |
-| PUFFER Token              | [0x4543168F4C5b3EcDdeF36E15DbCD6914e3f585BD](https://holesky.etherscan.io/address/0x4543168F4C5b3EcDdeF36E15DbCD6914e3f585BD) |
-| TDXVerifier               | [0x7c2B88Bb08467669e6ee3ed604f07aB0D5E78F1a](https://holesky.etherscan.io/address/0x7c2B88Bb08467669e6ee3ed604f07aB0D5E78F1a) |
-| GuardianProver            | [0xdE0e5FefE21af1C46F63c0Ee6381b512B95085F7](https://holesky.etherscan.io/address/0xdE0e5FefE21af1C46F63c0Ee6381b512B95085F7) |
-| GuardianProverMinority    | [0x51940246968853F696ab7761eA5Af86c542C0894](https://holesky.etherscan.io/address/0x51940246968853F696ab7761eA5Af86c542C0894) |
+| L1StandardBridge                  | [0xa99A27d6F39630332e0F39C9Fa3D2E0C0d76B3e7](https://hoodi.etherscan.io/address/0xa99A27d6F39630332e0F39C9Fa3D2E0C0d76B3e7) |
+| L1CrossDomainMessenger    | [0x6867a91f876748C4bd4aA4a6A5c87B705c24ed1D](https://hoodi.etherscan.io/address/0x6867a91f876748C4bd4aA4a6A5c87B705c24ed1D) |
+| OptimismPortal    | [0x0E9c3F12dcA3494D7A6d96bF47FB1d45E949A4B2](https://hoodi.etherscan.io/address/0x0E9c3F12dcA3494D7A6d96bF47FB1d45E949A4B2) |
+| TEE Prover Registry    | [0x11aDe8589Bf0c7A610665de7c42abE073Cf03FD2](https://hoodi.etherscan.io/address/0x11aDe8589Bf0c7A610665de7c42abE073Cf03FD2) |
+| TEE Attestation Verifier    | [0xa3c611ab3B2b8614b8074f3c530BAbd1898dE31e](https://hoodi.etherscan.io/address/0xa3c611ab3B2b8614b8074f3c530BAbd1898dE31e) |
+| Automata DCAP Attestation | [0x133303659F51d75ED216FD98a0B70CbCD75339b2](https://hoodi.etherscan.io/address/0x133303659F51d75ED216FD98a0B70CbCD75339b2) |
+| Automata SNP Attestation               | [0x3992E2f7Cc1cA02EC6cBD22C4187940913338402](https://hoodi.etherscan.io/address/0x3992E2f7Cc1cA02EC6cBD22C4187940913338402) |
 
 ### L2 Addresses
 
 | Contract                    | Address                                    |
 |-----------------------------|--------------------------------------------|
-| UniFi L2                    | 0x9A7fe8e9852c684DD03ce9caEa003F5Fc0a3135b |
-| Bridge                      | 0x511a232eaef7aA4633BAc8E406a7886e46492AFC |
-| Signal Service              | 0x80d0AFe646Ba22e5E557F1dCC209e75b07e1b1BA |
-| Rollup Address Manager      | 0x91e75542D9da7C52089b71094e327307C51D6deD |
-| Shared Address Manager      | 0x251724F9AD5F23CdF8b9d63cb7c372462F834319 |
+| L2StandardBridge                    | 0x4200000000000000000000000000000000000010 |
+| L2CrossDomainMessenger                      | 0x4200000000000000000000000000000000000007 |
+| L2ToL1MessagePasser              | 0x4200000000000000000000000000000000000016 |
+| OptimismMintableERC20Factory      | 0x4200000000000000000000000000000000000012 |
+| L1Block      | 0x4200000000000000000000000000000000000015 |
+| GasPriceOracle      | 0x420000000000000000000000000000000000000F |

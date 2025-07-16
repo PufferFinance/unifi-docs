@@ -76,14 +76,14 @@ Optionally, you can verify your contract on the network. This makes the source c
 To deploy and verify a contract in a single command, run:
 
 ```bash
-forge create --rpc-url <rpc_https_endpoint> --private-key <your_private_key> src/Counter.sol:Counter --verify --verifier blockscout --verifier-url <blockscout_homepage_explorer_url>/api
+forge create --rpc-url <rpc_https_endpoint> --private-key <your_private_key> src/Counter.sol:Counter --verify --verifier blockscout --verifier-url <block_explorer_url>/api
 ```
 
 In the command:
 
 - `rpc_https_endpoint` is a RPC Endpoint for the UniFi network. You can find the endpoints in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
 - `your_private_key` is your wallet's private key.
-- `blockscout_homepage_explorer_url` is the URL of the block explorer explorer you're using. You can find the endpoints
+- `block_explorer_url` is the URL of the block explorer you're using. You can find the endpoints
 in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
 
 For more contract verification options, see the [verify-contract documentation](https://book.getfoundry.sh/reference/forge/forge-verify-contract).
