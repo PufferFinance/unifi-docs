@@ -24,7 +24,7 @@ To connect to the UniFi Testnet, follow these steps:
 3. Enter the following details:
    - **Network Name**: `UniFi Testnet`
    - **RPC URL**: `https://testnet-rpc-unifi.puffer.fi/`
-   - **Chain ID**: `8787`
+   - **Chain ID**: `2092151908`
    - **Currency Symbol**: `ETH`
    - **Block Explorer URL**: `https://testnet-explorer-unifi.puffer.fi/`
 
