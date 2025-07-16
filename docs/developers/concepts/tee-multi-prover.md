@@ -48,3 +48,29 @@ With this optimization, the verification cost for a single proof is reduced to n
 
 
 ![workflow](/img/tee-multi-prover/workflow.png)
+
+## Multi-Client Architecture for Instant Withdrawals
+
+For instant withdrawals, UniFi employs a multi-client TEE architecture that uses diverse execution clients to generate validity proofs, ensuring system robustness through differential verification.
+
+![TEE MultiClient Architecture](/img/tee-multi-prover/tee_multiclient.png)
+
+### Architecture Components
+
+1. **TDX Execution Engine**: Enhanced op-geth/op-reth with TEE capabilities that re-executes batches and generates cryptographic proofs
+2. **ProverRegistry**: Maintains authorized provers with attestation verification, tracking client types and execution layer types
+3. **L2 Output Submitter**: Aggregates proofs from multiple TEE clients and initiates instant withdrawals
+4. **DisputeGameFactory**: Verifies aggregated proofs and processes withdrawals
+5. **AttestationVerifier**: Validates TEE attestation reports and prover authenticity
+
+### Multi-Client Workflow
+
+1. **Prover Registration**: TDX Execution Engines register with the ProverRegistry, generating attestation reports that include client type information. The ProverRegistry extracts and verifies public keys, TEE types, and execution layer types.
+
+2. **Withdrawal Processing**: The L2 Output Submitter scans L2 blocks to identify withdrawal transactions and retrieves execution proofs from multiple registered TEE execution clients.
+
+3. **Proof Aggregation**: The submitter maintains a list of registered provers and collects the required number of proof types for valid instant withdrawals, then aggregates these proofs.
+
+4. **Instant Withdrawal Execution**: The submitter calls the `atomicWithdrawal` function in DisputeGameFactory, providing the aggregated proofs as input.
+
+5. **Verification and Settlement**: DisputeGameFactory sends proofs to ProverRegistry for verification. The system validates proofs from multiple client types simultaneously by checking registered prover information, ensuring diverse validation coverage.
