@@ -121,9 +121,9 @@ To verify a contract, you need to make a few modifications the project.
    ```bash
    npm install --save-dev @nomicfoundation/hardhat-verify
    ```
-2. Add blockscout url and chain id to the .env file
+2. Add block explorer url and chain id to the .env file
    ```
-   BLOCKSCOUT_URL=<blockscout_homepage_explorer_url>
+   BLOCK_EXPLORER_URL=<block_explorer_url>
    CHAIN_ID=<chain_id>
    ```
 3. Import `hardhat-verify` in your `hardhat.config.js`:
@@ -132,7 +132,7 @@ To verify a contract, you need to make a few modifications the project.
    require("@nomicfoundation/hardhat-verify");
    require("@nomicfoundation/hardhat-toolbox");
    require("dotenv").config();
-   const { PRIVATE_KEY, RPC_ENDPOINT, BLOCKSCOUT_URL, CHAIN_ID } = process.env;
+   const { PRIVATE_KEY, RPC_ENDPOINT, BLOCK_EXPLORER_URL, CHAIN_ID } = process.env;
 
    module.exports = {
      solidity: "0.8.27",
@@ -151,8 +151,8 @@ To verify a contract, you need to make a few modifications the project.
            network: "unifi_testnet",
            chainId: CHAIN_ID,
            urls: {
-             apiURL: `${BLOCKSCOUT_URL}/api`,
-             browserURL: BLOCKSCOUT_URL,
+             apiURL: `${BLOCK_EXPLORER_URL}/api`,
+             browserURL: BLOCK_EXPLORER_URL,
            },
          },
        ],
