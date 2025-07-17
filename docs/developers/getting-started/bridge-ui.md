@@ -11,7 +11,7 @@ This guide will help you bridge your funds from the L1 network to the UniFi Roll
 ## How to bridge (deposit) ETH to UniFi
 
 
-1. Open the [UniFi Rollup Bridge UI](https://testnet-bridge.unifi.puffer.fi/).
+1. Open the [UniFi Rollup Bridge UI](https://testnet-unifi-bridge.puffer.fi/).
 2. Connect your preferred wallet.
 
    ![Connecting the wallet](/img/rollup/connect-wallet.png)
