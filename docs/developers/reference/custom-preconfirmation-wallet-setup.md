@@ -9,13 +9,16 @@ This guide explains how to set up a custom wallet that supports pre-confirmation
 
 ### 1. Build the Modified Rabby Extension
 
+First, clone the repository and build the extension. Note that you need to have `yarn` installed to build the extension.
 ```sh
-make build-rabby
+git clone https://github.com/gattaca-com/based-op.git
+cd based-op/rabby
+yarn && yarn build:pro && yarn build:pro:mv2
 ```
 
 ### 2. Install the Extension
 
-The compiled extension will be available in:
+The compiled extension will be available in the following directories:
 - **Google Chrome**: `rabby/dist`
 - **Mozilla Firefox**: `rabby/dist-mv2`
 
