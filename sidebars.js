@@ -100,6 +100,11 @@ const sidebars = {
         },
         {
           type: "doc",
+          label: "Custom Wallet Setup for Pre-confirmations",
+          id: "developers/reference/custom-preconfirmation-wallet-setup",
+        },
+        {
+          type: "doc",
           label: "Smart Contract Addresses",
           id: "developers/reference/contract-addresses",
         },
