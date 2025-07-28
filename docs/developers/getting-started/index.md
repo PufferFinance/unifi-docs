@@ -24,7 +24,7 @@ giving users access to Ethereum's decentralized validator set for a more secure 
 - **Credibly Neutral Sequencing**: Transactions are sequenced by Ethereum's L1 validators, ensuring reliability and neutrality.
 - **Fast Transactions**: Users enjoy 100ms pre-confirmations, enhancing the overall experience.
 - **Value Flow Back to Ethereum**: Sequencing fees flow back to block proposers on Ethereum, supporting the sustainability and value of the L1 network.
-- **Fast Withdrawl from L2 to L1 (Ethereum)**: In the initial launch of UniFi, it will allow for fast withdrawal from UniFi to Ethereum L1 within 1 hours. As UniFi achieves true atomic composability, this withdrawal time is expected to reduce to as low as 8 seconds.
+- **Instant Withdrawl from L2 to L1 (Ethereum)**: Users can withdraw funds from L2 to L1 in nearly 10 seconds instead of the standard 7-day dispute period. This is achieved through **TEE (Trusted Execution Environment) proofs** that provide cryptographic guarantees of execution correctness.
   
 ### Why Choose UniFi Rollup?
 

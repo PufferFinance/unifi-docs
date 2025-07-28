@@ -34,4 +34,4 @@ You can get tokens from the [Testnet Faucet](https://testnet-unifi-faucet.puffer
 
 ## Additional Resources
 
-- [MetaMask Support](https://support.metamask.io)
+- [Custom Wallet Setup for Pre-confirmations](/developers/reference/custom-preconfirmation-wallet-setup)
