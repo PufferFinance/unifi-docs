@@ -48,11 +48,12 @@ prevent committing it. Populate the `.env` file with the private information.
 Deploy your contract using the following syntax:
 
 ```bash
-forge create --rpc-url <rpc_https_endpoint> src/Counter.sol:Counter --private-key <your_private_key>
+forge create --broadcast --rpc-url <rpc_https_endpoint> src/Counter.sol:Counter --private-key <your_private_key>
 ```
 
 In the command:
 
+- `--broadcast` specifies that the deployment transaction should be broadcast to the network. Otherwise, the transaction is dry-run on the local node.
 - `rpc_https_endpoint` is a RPC Endpoint for the UniFi network. You can find the endpoints in the
 [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
 - `your_private_key` is your wallet's private key.
@@ -71,9 +72,18 @@ For more deployment options, see the [forge-create documentation](https://book.g
 
 Optionally, you can verify your contract on the network. This makes the source code publicly available.
 
-### Deploy and verify a contract in one go
+```bash
+forge verify-contract --rpc-url <rpc_https_endpoint> --verifier blockscout --verifier-url <block_explorer_url>/api <contract_address> src/Counter.sol:Counter
+```
 
-To deploy and verify a contract in a single command, run:
+In the command:
+
+- `rpc_https_endpoint` is a RPC Endpoint for the UniFi network. You can find the endpoints in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
+- `contract_address` is the address of the contract you want to verify.
+- `block_explorer_url` is the URL of the block explorer you're using. You can find the endpoints
+in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
+
+Alternatively, you can deploy and verify a contract in a single command, run:
 
 ```bash
 forge create --rpc-url <rpc_https_endpoint> --private-key <your_private_key> src/Counter.sol:Counter --verify --verifier blockscout --verifier-url <block_explorer_url>/api
