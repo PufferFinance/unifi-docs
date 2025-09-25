@@ -5,6 +5,10 @@ slug: /developers/concepts/architecture
 
 UniFi is an Ethereum Based Rollup with enabled preconfirmations, instant withdrawals, and L1↔L2 synchronous composability. Particularly preconfirmations are enabled by integrating Gateways, instant withdrawals are enabled by leveraging TEE proofs, and synchronous composability is enabled by leveraging Signal Service.
 
+:::info
+UniFi's Signal Service implementation is based on OpenZeppelin's design in their Minimal Rollup architecture: https://github.com/OpenZeppelin/minimal-rollup/blob/main/documentation/signal-service.md
+:::
+
 ## Preconfirmations
 
 Preconfirmations in UniFi are enabled by **Gateways**, specialized sequencing entities that provide execution preconfirmations on behalf of L1 proposers.
