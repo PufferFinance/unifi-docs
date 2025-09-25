@@ -82,7 +82,12 @@ const sidebars = {
           type: "doc", 
           label: "TEE Multi Prover",
           id: "developers/concepts/tee-multi-prover",
-        }
+        },
+        {
+          type: "doc", 
+          label: "Signal Service",
+          id: "developers/concepts/signal-service",
+        },
       ]
     },
     {
@@ -112,6 +117,11 @@ const sidebars = {
           type: "doc",
           label: "Opcodes",
           id: "developers/reference/opcodes",
+        },
+        {
+          type: "doc",
+          label: "L1 to L2 Composability Examples",
+          id: "developers/reference/L1-to-L2-composability-examples",
         },
       ]
     }

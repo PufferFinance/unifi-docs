@@ -25,6 +25,7 @@ giving users access to Ethereum's decentralized validator set for a more secure 
 - **Fast Transactions**: Users enjoy 100ms pre-confirmations, enhancing the overall experience.
 - **Value Flow Back to Ethereum**: Sequencing fees flow back to block proposers on Ethereum, supporting the sustainability and value of the L1 network.
 - **Instant Withdrawl from L2 to L1 (Ethereum)**: Users can withdraw funds from L2 to L1 in nearly 10 seconds instead of the standard 7-day dispute period. This is achieved through **TEE (Trusted Execution Environment) proofs** that provide cryptographic guarantees of execution correctness.
+- **L1↔L2 Synchronous Composability**: UniFi implements **Signal Service** on top of OP Stack to enable atomic operations between L1 and L2 within the same slot. As a Based Rollup, UniFi is uniquely positioned to provide strong guarantees for same-slot cross-layer composability.
   
 ### Why Choose UniFi Rollup?
 
