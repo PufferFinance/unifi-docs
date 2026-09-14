@@ -10,6 +10,14 @@ Before you begin, ensure you:
 1. [Set up your wallet and acquired Testnet tokens](developers/getting-started/acquire-testnet-tokens.md).
 2. [Set up your Hardhat environment](https://hardhat.org/tutorial/setting-up-the-environment#2.-setting-up-the-environment).
 
+:::tip Concrete values for UniFi Testnet
+- `rpc_https_endpoint` = `https://testnet-unifi-rpc.puffer.fi/`
+- `block_explorer_url` = `https://testnet-unifi-explorer.puffer.fi/`
+- `chain_id` = `2092151908`
+
+Full list in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
+:::
+
 ## Create a Hardhat project
 
 To create an empty Hardhat project:
@@ -85,6 +93,7 @@ a few modifications to the `hardhat.config.js` file:
      networks: {
        unifi_testnet: {
          url: RPC_ENDPOINT,
+         chainId: 2092151908,
          accounts: [PRIVATE_KEY],
        },
      },
@@ -123,8 +132,8 @@ To verify a contract, you need to make a few modifications the project.
    ```
 2. Add block explorer url and chain id to the .env file
    ```
-   BLOCK_EXPLORER_URL=<block_explorer_url>
-   CHAIN_ID=<chain_id>
+   BLOCK_EXPLORER_URL=https://testnet-unifi-explorer.puffer.fi
+   CHAIN_ID=2092151908
    ```
 3. Import `hardhat-verify` in your `hardhat.config.js`:
 

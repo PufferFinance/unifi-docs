@@ -20,6 +20,14 @@ Before you begin, ensure you've:
    cast, anvil, and chisel. For additional options, such as installing a specific version or commit, run `foundryup --help`
    :::
 
+:::tip Concrete values for UniFi Testnet
+- `rpc_https_endpoint` = `https://testnet-unifi-rpc.puffer.fi/`
+- `block_explorer_url` = `https://testnet-unifi-explorer.puffer.fi/`
+- `chain_id` = `2092151908`
+
+Full list in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
+:::
+
 ## Create a Foundry project
 
 To create a Foundry project, run:
@@ -82,6 +90,13 @@ In the command:
 - `contract_address` is the address of the contract you want to verify.
 - `block_explorer_url` is the URL of the block explorer you're using. You can find the endpoints
 in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
+
+For UniFi Testnet, the full command is:
+
+```bash
+forge verify-contract --rpc-url https://testnet-unifi-rpc.puffer.fi/ --verifier blockscout \
+  --verifier-url https://testnet-unifi-explorer.puffer.fi/api <contract_address> src/Counter.sol:Counter
+```
 
 Alternatively, you can deploy and verify a contract in a single command, run:
 
