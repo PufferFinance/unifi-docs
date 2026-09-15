@@ -30,7 +30,7 @@ This guide will help you bridge your funds from the L1 network to the UniFi Roll
 7. Track the transaction in the Transactions tab.
    ![Transaction tab](/img/rollup/transaction-tab.png)
    :::info
-   Transaction tab may not be working as expected, however, it does not affect the bridging process. You will see your bridged funds in the L2 network in around just 1 minute.
+   Transaction tab may not be working as expected, however, it does not affect the bridging process. Your bridged funds will appear on L2 after a few minutes.
    :::
 8. After a few minutes, the transaction will be confirmed and the status will change to Claimed.
    ![Claimed transaction](/img/rollup/claimed-transaction.png)
@@ -41,4 +41,9 @@ This guide will help you bridge your funds from the L1 network to the UniFi Roll
 1. Make sure that you've selected UniFi Testnet as your source chain
    ![Token Selection L2](/img/rollup/select-token-l2.png)
 
-2. The next steps are the same as when depositing ETH. Once the transaction is confirmed, you can switch to the L1 network (Hoodi) and see your bridged funds in your wallet. The withdrawal will be processed automatically in nearly the same L1 block.
+2. The next steps are the same as when depositing ETH. Once the transaction is confirmed, you can switch to the L1 network (Hoodi) and see your bridged funds in your wallet.
+
+   :::info
+   Withdrawals are processed automatically — there is no separate prove or claim step, and no seven-day
+   challenge period. Expect the funds to land on L1 after a few minutes.
+   :::
