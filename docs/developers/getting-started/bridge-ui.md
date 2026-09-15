@@ -30,7 +30,7 @@ This guide will help you bridge your funds from the L1 network to the UniFi Roll
 7. Track the transaction in the Transactions tab.
    ![Transaction tab](/img/rollup/transaction-tab.png)
    :::info
-   Transaction tab may not be working as expected, however, it does not affect the bridging process. Your bridged funds will appear on L2 after a few minutes.
+   Transaction tab may not be working as expected, however, it does not affect the bridging process. You will see your bridged funds in the L2 network in around just 1 minute.
    :::
 8. After a few minutes, the transaction will be confirmed and the status will change to Claimed.
    ![Claimed transaction](/img/rollup/claimed-transaction.png)
