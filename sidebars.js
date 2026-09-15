@@ -105,6 +105,11 @@ const sidebars = {
         },
         {
           type: "doc",
+          label: "Preconfirmation RPC Semantics",
+          id: "developers/reference/preconfirmation-rpc-semantics",
+        },
+        {
+          type: "doc",
           label: "Custom Wallet Setup for Pre-confirmations",
           id: "developers/reference/custom-preconfirmation-wallet-setup",
         },

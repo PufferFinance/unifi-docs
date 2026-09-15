@@ -5,6 +5,13 @@ slug: /developers/reference/L1-to-L2-composability-examples
 
 # L2 Reads from L1
 
+:::warning Not yet available on UniFi Testnet
+The Signal Service and the L1↔L2 synchronous composability it enables are **not yet deployed to
+UniFi Testnet**. The examples on this page describe the intended developer experience and cannot be
+run against the testnet today. This page will be updated with deployed contract addresses once the
+feature ships.
+:::
+
 This page provides practical examples of how to implement L1↔L2 synchronous composability using UniFi's Signal Service. These examples demonstrate how L2 contracts can read and consume data from L1 within the same slot.
 
 *Note: Example code is illustrative - actual implementation may vary*
