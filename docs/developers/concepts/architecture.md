@@ -22,12 +22,17 @@ Gateways are high-performance sequencers that handle transaction processing and 
 Gateways enable fast preconfirmations by:
 
 1. **Immediate Transaction Processing**: Accept and validate transactions continuously without waiting for L1 block times
-2. **Fragment Broadcasting**: Share partial block data in real-time, allowing users to receive confirmation before final block settlement
+2. **Fragment Broadcasting**: Stream the block out in ordered pieces ("fragments") while it is still being built, so other nodes execute each piece on arrival and users get a receipt before the block seals
 3. **Exclusive Write Access**: Maintain temporary exclusive write access to L2 state during assigned slots, enabling confident preconfirmation issuance
 
 This design allows users to receive execution confirmations within milliseconds rather than waiting for L1 block finalization, significantly improving user experience while maintaining security through the underlying based rollup architecture.
 
-For a deep dive into the architecture of a Gateway, you can refer to the [Gattaca's Gateway Documentation](https://gattaca-com.github.io/based-op/).
+UniFi's sequencing layer is built on [Gattaca's based-op](https://github.com/gattaca-com/based-op).
+For how a block is actually produced — fragments, the gateway/portal/registry components, gateway
+rotation and what the fallback client guarantees — see
+[The based-op Sequencing Stack](based-op-stack.md). For how preconfirmations change what standard
+RPC methods return, see
+[Preconfirmation RPC Semantics](../reference/preconfirmation-rpc-semantics.md).
 
 ## Instant Withdrawals
 

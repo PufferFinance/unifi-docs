@@ -79,6 +79,11 @@ const sidebars = {
           id: "developers/concepts/gateway",
         },
         {
+          type: "doc",
+          label: "based-op Sequencing Stack",
+          id: "developers/concepts/based-op-stack",
+        },
+        {
           type: "doc", 
           label: "TEE Multi Prover",
           id: "developers/concepts/tee-multi-prover",
