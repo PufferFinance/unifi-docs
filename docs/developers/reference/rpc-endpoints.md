@@ -27,3 +27,9 @@ available in well under a second. This changes what some standard RPC methods re
 preconfirmation window — see
 [Preconfirmation RPC Semantics](./preconfirmation-rpc-semantics.md) before you build against this endpoint.
 :::
+
+## Running your own endpoint
+
+The public endpoint above is a follower node, and you can run the same thing yourself — it serves
+preconfirmed state, needs no key and no registration. See
+[Deploy a Follower Node](../node-operators/follower-node.md).
