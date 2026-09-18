@@ -133,21 +133,29 @@ the address it would announce is unroutable — which is what `FOLLOWER_IP=0.0.0
 is announced and you get `not publishing own p2p addr` instead. That one means `FOLLOWER_IP` is
 wrong, not that meshing failed. Grep for both.
 
-**3. Fragments are arriving.** Sample at least 60 seconds after start; the consensus client comes up
-second:
+**3. Fragments are arriving — this is the check that matters.** It is the only step that separates a
+working follower from an ordinary OP Stack node. Sample at least 60 seconds after start; the consensus
+client comes up second. Expect zero until the execution client has reached the head, because fragments
+are refused below it:
 
 ```bash
 docker logs --since 10m follower-op-node 2>&1 | grep -c 'Successfully sent frag to engine'   # > 0
 docker logs --since 10m follower-op-node 2>&1 | grep -ci 'Method not found'                  # 0
 ```
 
-`Method not found` means the execution client does not implement the fragment engine methods — i.e.
-it is not a based execution client. Treat that second grep as a hint rather than a gate: the exact
-wording depends on which component rejects the call, and an execution client's own phrasing for an
-unimplemented method may not contain that string. The positive count above it is the check that
-matters; a zero here is not evidence of health.
+Treat that second grep as a hint rather than a gate, and **read the message body rather than the
+count** — two different things produce that string:
 
-**4. Preconfirmed state is actually being served.** `unsafe` must run *ahead* of `safe`:
+- If the main node runs an older portal, it answers "method not found" to the registry calls your
+  consensus client uses to find gateways, so you get
+  `gateway-mesh: failed to fetch peer addrs` every 30 seconds. That is the *main node* missing the
+  fragment-mesh methods, and it also stops fragments reaching you — nothing to do with your execution
+  client. Ask UniFi.
+- An execution client's own phrasing for an unimplemented method may not contain the string at all.
+
+The positive count above it is the check that matters; a zero here is not evidence of health.
+
+**4. Derivation is progressing.** This one is a sanity check, **not** a preconfirmation check:
 
 ```bash
 curl -s -X POST -H 'Content-Type: application/json' \
@@ -156,9 +164,18 @@ curl -s -X POST -H 'Content-Type: application/json' \
   | jq '{unsafe: .result.unsafe_l2.number, safe: .result.safe_l2.number}'
 ```
 
-Note the `.result` prefix — without it every field reads `null`, which looks like a dead node. If the
-two numbers are **equal**, you are tracking canonical blocks only and the preconfirmation path is not
-working, *even though the block height looks perfectly healthy*. Height does not discriminate here.
+:::warning
+`unsafe` runs ahead of `safe` on *every* healthy OP Stack node — the unsafe head comes from gossip and
+the safe head from L1 derivation, so the first is always at or ahead of the second. Measured on two
+real followers: one applying 3,466 fragments per 10 minutes read `unsafe=19509035 safe=19508944`, and
+one applying **zero** fragments, whose execution client was 2.4 million blocks behind, read
+`unsafe=2541444 safe=0`. The comparison passed in both. Judge the preconfirmation path by step 3.
+:::
+
+Note the `.result` prefix — without it every field reads `null`, which looks like a dead node. Take
+`OP_NODE_RPC_PORT` from the running container rather than from `.env`, too: not every deployment has
+that line, and a shell that expands it to nothing leaves you querying `http://127.0.0.1:` — port 80,
+which answers with something else's error.
 
 Once it is serving, read
 [Preconfirmation RPC Semantics](../reference/preconfirmation-rpc-semantics.md) — it is the contract
