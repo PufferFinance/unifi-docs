@@ -48,8 +48,28 @@ UniFi team to be added, and mention which role you intend to run. The deep links
 following pages are inside that repository and will 404 until you have access.
 
 Everything you need is in the repo: `devnet-deployment/` holds the compose templates and a `make`
-target per role, so a deployment is a `git clone` plus one command. Images are built locally from
-source; there is no separate image registry to be granted access to.
+target per role. Images are built locally from source; there is no separate image registry to be
+granted access to.
+
+### Getting it onto the machine
+
+Both `unifi-op` and its `op-geth` submodule are private, so **whatever credential you use has to
+cover both** — the build pulls the submodule itself and builds the execution client image from it. A
+credential scoped to `unifi-op` alone is not enough.
+
+How the tree reaches the host is up to you, and the rest of the deployment is identical either way:
+
+- **Clone on the host.** Configure a credential first — an SSH key (agent forwarding works and leaves
+  nothing behind on the host), a deploy key, or a personal access token in a credential helper.
+- **Build the tree elsewhere and copy it over.** `git bundle` plus `scp` is the practical route for a
+  host with no GitHub access of its own.
+
+Without a credential in place, the deployment stops on its very first command:
+
+```
+$ git clone https://github.com/PufferFinance/unifi-op.git
+fatal: could not read Username for 'https://github.com'
+```
 
 ## What UniFi gives you when you are onboarded
 

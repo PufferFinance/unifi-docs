@@ -99,6 +99,9 @@ runs *inside* the VM and cannot open a port the security group drops.
 
 ### 1. Get the code
 
+The repository and its `op-geth` submodule are both private, so set up a git credential that covers
+both before you start — see [Getting it onto the machine](./index.md#getting-it-onto-the-machine).
+
 ```bash
 git clone https://github.com/PufferFinance/unifi-op.git
 cd unifi-op

@@ -47,6 +47,9 @@ you were given a hostname, resolve it yourself and pass the address.
 
 ## Deploy
 
+The repository and its `op-geth` submodule are both private, so set up a git credential that covers
+both before you start — see [Getting it onto the machine](./index.md#getting-it-onto-the-machine).
+
 ```bash
 git clone https://github.com/PufferFinance/unifi-op.git
 cd unifi-op
