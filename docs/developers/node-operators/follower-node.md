@@ -135,11 +135,16 @@ will mesh as a reader only. **That is success, not a warning** — it is what a 
 docker logs follower-op-node 2>&1 | grep -E 'reader only|added mesh peer'
 ```
 
-Its *absence* is ambiguous, so do not read that as failure on its own. The line is written only after
-the node actually attempts to announce itself and the registry replies that it is not a gateway. If
-the address it would announce is unroutable — which is what `FOLLOWER_IP=0.0.0.0` gives you — nothing
-is announced and you get `not publishing own p2p addr` instead. That one means `FOLLOWER_IP` is
-wrong, not that meshing failed. Grep for both.
+Its *absence* is ambiguous, so do not read that as failure on its own. There are three outcomes:
+
+| What you see | What it means |
+|---|---|
+| `…will mesh as a reader only` | Success — the node announced itself and the registry confirmed it is not a gateway. |
+| `not publishing own p2p addr` | The address it would announce is unroutable, which is what `FOLLOWER_IP=0.0.0.0` gives you. Fix `FOLLOWER_IP`. |
+| `gateway-mesh: failed to publish p2p addr` / `failed to fetch peer addrs` | The **main node** does not serve the fragment-mesh registry calls. Nothing is wrong on your side — and **no fragments will arrive** until UniFi updates it. |
+
+Measured against a main node in that third state, the first two greps both returned **zero**. Grep
+for all three.
 
 **3. Fragments are arriving — this is the check that matters.** It is the only step that separates a
 working follower from an ordinary OP Stack node. Sample at least 60 seconds after start; the consensus
@@ -173,11 +178,20 @@ curl -s -X POST -H 'Content-Type: application/json' \
 ```
 
 :::warning
-`unsafe` runs ahead of `safe` on *every* healthy OP Stack node — the unsafe head comes from gossip and
-the safe head from L1 derivation, so the first is always at or ahead of the second. Measured on two
-real followers: one applying 3,466 fragments per 10 minutes read `unsafe=19509035 safe=19508944`, and
-one applying **zero** fragments, whose execution client was 2.4 million blocks behind, read
-`unsafe=2541444 safe=0`. The comparison passed in both. Judge the preconfirmation path by step 3.
+**Not a preconfirmation check, and not a health gate.** Three measurements on real followers:
+
+| Node | fragments | reading | naive verdict |
+|---|---|---|---|
+| production follower | 3,466 / 10 min | `unsafe=19509035 safe=19508944` | "working" |
+| fresh follower, 2.4M blocks behind | 0 | `unsafe=2541444 safe=0` | "working" — it was not |
+| same follower, fully synced and serving | 0 | `unsafe=0 safe=0 finalized=2552485` | "broken" — it was serving fine |
+
+`unsafe` is at or ahead of `safe` on every healthy OP Stack node by construction, so the comparison
+cannot fail for a reason you care about — and the third row shows the fields can read `0`, below
+`finalized`, on a node that is at the chain head with peers and answering `eth_getBlockByNumber`.
+
+Judge the preconfirmation path by step 3, and liveness by comparing your execution client's
+`eth_blockNumber` against the one UniFi publishes.
 :::
 
 Note the `.result` prefix — without it every field reads `null`, which looks like a dead node. Take
