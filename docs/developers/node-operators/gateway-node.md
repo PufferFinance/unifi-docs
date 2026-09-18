@@ -122,6 +122,7 @@ To derive the address from a key you already have: `docker run --rm key_to_addre
 
 ```bash
 cd devnet-deployment
+cp config.mk.example config.mk    # required — see below
 
 make start-gateway \
     PORTAL=http://<main-node-ipv4>:<portal-port> \
@@ -134,7 +135,11 @@ make start-gateway \
 ```
 
 All of these are required; the target errors on any that is unset. Quote the enode — it contains `@`
-and `:`. You can put them in `devnet-deployment/config.mk` instead (copy `config.mk.example`);
+and `:`.
+
+**The `cp` is not optional.** The Makefile hard-includes `config.mk`, and the file is not in the
+repository, so without it every target stops with `No rule to make target 'config.mk'` before
+building anything. You can also set the values above in that file rather than passing them each time;
 command-line values win. **Keep `config.mk` out of any repository you push — it holds your sequencing
 key.**
 
@@ -200,8 +205,12 @@ both gossip ports — peering is bidirectional — and that the main node's goss
 are non-empty. A blank enode is your own configuration; blank gossip values mean the portal fetch
 failed, so re-run `make start-gateway`.
 
-**A container exits at startup with a Prague/Isthmus fork-order error.** Ask UniFi for the canonical
-activation timestamp and set it in both the execution and consensus client commands in your local
+**A container exits at startup with a fork-activation or fork-ordering error.** Chain-specific, and
+absent entirely on a chain whose forks are all active from genesis: activation times come from the
+`genesis.json` the portal serves and the templates ship no `--override.<fork>` flag. It arises where a
+chain activates a fork at a timestamp partway through its life — as UniFi Testnet does for Isthmus —
+and your node's view of that timestamp disagrees with the network's. If you hit it, ask UniFi for the
+canonical timestamp and set it in both the execution and consensus client commands in your local
 `compose.yml`, then recreate. **Never choose a timestamp yourself** — a value the network does not
 share forks you off the canonical chain.
 
@@ -220,7 +229,7 @@ transaction fan-out — the second half of step 4.
 
 - **Upgrading.** Pull the new revision and recreate the container. The other gateways keep serving
   during your restart, so users see no outage. Do not use `make start-gateway` to upgrade; it is a
-  first-deploy target.
+  first-deploy target and refuses once `.env` exists.
 - **Rotating your key or JWT.** Stop the gateway, have UniFi remove your row, regenerate, and deploy
   again. There is no in-place update. If the *signing key* changed, UniFi must also update your entry
   in the transaction fan-out — a stale signer address leaves your leg advisory.

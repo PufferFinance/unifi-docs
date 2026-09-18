@@ -53,6 +53,8 @@ cd unifi-op
 git submodule update --init --recursive
 
 cd devnet-deployment
+cp config.mk.example config.mk    # required — see below
+
 make start-follower \
     PORTAL=http://<main-node-ipv4>:<portal-port> \
     TXPROXY=http://<main-node-ipv4>:<txproxy-port> \
@@ -68,9 +70,13 @@ What it does: builds the two images, creates `.local_follower_node/` with a `com
 a fresh `config/jwt`, and fetches `rollup.json`, `genesis.json` and the chain ID from the portal.
 Then it starts both containers detached.
 
-If you would rather not pass these on the command line every time, copy
-`devnet-deployment/config.mk.example` to `config.mk` and set them there. Command-line values win.
-Keep `config.mk` out of any repository you push — for a gateway it carries a private key.
+**The `cp` is not optional.** The Makefile hard-includes `config.mk`, and the file is not in the
+repository, so without it every target stops with `No rule to make target 'config.mk'` before
+building anything. A follower needs none of the key entries in the template; leave them as they are.
+
+You can also set `PORTAL`, `TXPROXY`, `FOLLOWER_IP` and the L1 endpoints in that `config.mk` rather
+than passing them each time — command-line values win. Keep `config.mk` out of any repository you
+push; for a gateway it carries a private key.
 
 ### Choosing `FOLLOWER_IP`
 
@@ -121,6 +127,12 @@ will mesh as a reader only. **That is success, not a warning** — it is what a 
 docker logs follower-op-node 2>&1 | grep -E 'reader only|added mesh peer'
 ```
 
+Its *absence* is ambiguous, so do not read that as failure on its own. The line is written only after
+the node actually attempts to announce itself and the registry replies that it is not a gateway. If
+the address it would announce is unroutable — which is what `FOLLOWER_IP=0.0.0.0` gives you — nothing
+is announced and you get `not publishing own p2p addr` instead. That one means `FOLLOWER_IP` is
+wrong, not that meshing failed. Grep for both.
+
 **3. Fragments are arriving.** Sample at least 60 seconds after start; the consensus client comes up
 second:
 
@@ -130,7 +142,10 @@ docker logs --since 10m follower-op-node 2>&1 | grep -ci 'Method not found'     
 ```
 
 `Method not found` means the execution client does not implement the fragment engine methods — i.e.
-it is not a based execution client.
+it is not a based execution client. Treat that second grep as a hint rather than a gate: the exact
+wording depends on which component rejects the call, and an execution client's own phrasing for an
+unimplemented method may not contain that string. The positive count above it is the check that
+matters; a zero here is not evidence of health.
 
 **4. Preconfirmed state is actually being served.** `unsafe` must run *ahead* of `safe`:
 
@@ -151,14 +166,16 @@ for what your endpoint now returns during the preconfirmation window.
 
 ## Reading the logs without false alarms
 
-**These are not errors.** On a healthy follower they run at roughly **15–25% of fragments applied**:
+**These are not errors.** On a healthy follower they appear routinely, at a substantial fraction of
+fragments applied:
 
 - `frag is invalid … no unsealed block was opened`
 - `Resetting unsealed block after two forkchoice updates`
 
-They are normal when joining mid-block. A monitoring rule that asserts zero will fire on a healthy
-node. Judge them as a *ratio* to fragments applied, and if you run two followers, compare them over
-the same window.
+They are normal when joining mid-block. **A monitoring rule that asserts zero will fire on a healthy
+node.** There is no published baseline rate, so do not take a threshold from this page — establish
+your own by watching the ratio to fragments applied over a stable window, and if you run two
+followers, compare them against each other rather than against a number.
 
 Two more things that look like incidents and are not:
 
@@ -175,9 +192,11 @@ make logs-follower
 make stop-follower
 ```
 
-- **Re-running `make start-follower` is safe.** It refreshes the main node's gossip and enode values
-  and your `FOLLOWER_IP`, and does not regenerate the JWT. It refuses to run while the containers are
-  up.
+- **Re-running `make start-follower` does not quietly re-do the setup — it refuses.** The target
+  stops as soon as `.local_follower_node/.env` exists and tells you to bring the containers up
+  directly instead. Only `make start-follower FORCE=1` proceeds, and it backs the `.env` up first
+  before refreshing the main node's gossip and enode values and your `FOLLOWER_IP`. Neither path
+  regenerates the JWT, and both refuse while the containers are up.
 - **It will not re-copy `compose.yml` once `.env` exists.** After the first deploy, edit
   `.local_follower_node/compose.yml` directly and `docker compose up -d`. To force a full
   re-initialisation, delete `.local_follower_node/.env`.
@@ -188,10 +207,22 @@ make stop-follower
 
 ## Troubleshooting
 
-**The execution client exits at startup with a Prague/Isthmus fork-order error.** Ask UniFi for the
-canonical activation timestamp and set it in both the execution and consensus client commands in your
-local `compose.yml`, then recreate. **Do not pick a timestamp yourself** — a value the network does
-not share forks you off the canonical chain, and you will never apply a fragment.
+**A container exits at startup with a fork-activation or fork-ordering error.** This depends entirely
+on the chain you are joining, so there is nothing to do here in the general case: the canonical
+activation times come from the `genesis.json` the portal serves, and the templates deliberately ship
+no `--override.<fork>` flag.
+
+It only arises on a chain that activates a fork at a timestamp partway through its life rather than
+from genesis, and where your node's view of that timestamp disagrees with the network's. UniFi Testnet
+is such a chain — its Isthmus activation is a specific timestamp, and op-geth additionally requires
+the Prague EIPs to be active no later than Isthmus, so a genesis whose `pragueTime` is later than its
+`isthmusTime` makes the execution client refuse to start. A chain whose forks are all active from
+genesis has no such window and needs no override.
+
+If you do hit it, **ask UniFi for the canonical timestamp** and set that value in both the execution
+and consensus client commands in your local `compose.yml`, then recreate. **Never pick a timestamp
+yourself** — a value the network does not share forks you off the canonical chain, and you will never
+apply a fragment.
 
 **It syncs blocks but applies no fragments.** Check verification step 4 above rather than the block
 height. The usual causes are a `PORTAL` the node cannot reach (fragment signatures are validated

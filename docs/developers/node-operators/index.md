@@ -84,6 +84,11 @@ These apply to every role:
 - **NTP running** (`chrony` or equivalent). This is not boilerplate: clock drift breaks Engine API
   JWT authentication between your own containers and destabilises p2p.
 - **Outbound** to the main node's portal and p2p ports, your L1 endpoints, and 443 for image builds.
+- **A `config.mk` in `devnet-deployment/`.** The Makefile hard-includes it and the file is not in the
+  repository, so on a fresh clone *every* target stops immediately with
+  `No rule to make target 'config.mk'` before doing any work. `cp config.mk.example config.mk` from
+  inside `devnet-deployment` is the first step of any deployment — it is a prerequisite, not a
+  convenience.
 
 Inbound requirements differ by role and are covered on each page — a follower needs none, a gateway
 does.
