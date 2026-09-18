@@ -52,7 +52,7 @@ flowchart LR
 | **Gateway Registry** | The source of truth for which gateway is sequencing at a given block height. |
 | **TxProxy** | Fans incoming transactions out to the gateways so a transaction reaches whoever is currently building. |
 | **Fallback execution client** | An ordinary op-geth. Produces a block if the gateway is late or returns something invalid, and validates what the gateway produced. |
-| **Follower nodes** | Ordinary EL + CL pairs that consume fragments and serve preconfirmed reads. This is the shape a public RPC endpoint takes. |
+| **Follower nodes** | Ordinary EL + CL pairs that consume fragments and serve preconfirmed reads. This is the shape a public RPC endpoint takes, and the node you can [run yourself](../node-operators/follower-node.md). |
 
 ## How a block gets built
 
@@ -178,6 +178,12 @@ does not include today.
 
 The [Gateway](gateway.md) page describes the collateral, slashing and lookahead design these are
 heading toward.
+
+## Running one of these yourself
+
+Followers and gateways are both deployable by third parties. See
+[Run a UniFi Node](../node-operators/index.md) for what each role requires and how to get access to
+the deployment templates.
 
 ## Credits
 
