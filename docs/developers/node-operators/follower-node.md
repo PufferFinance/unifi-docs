@@ -43,6 +43,11 @@ especially NTP — and collect `PORTAL`, `TXPROXY` and your L1 endpoints from
 `PORTAL does not resolve to an IPv4 host` on anything that is not a dotted quad (or `localhost`). It
 needs the literal address because it rewrites the portal-reported gossip multiaddr to that host. If
 you were given a hostname, resolve it yourself and pass the address.
+
+It also has to be the *right* address. The portal port is firewalled, so confirm with UniFi which one
+your node should use — if you share a private network with the main node that is its **internal**
+address, and its public address may be filtered even from inside that network. A wrong-but-plausible
+value here fails as a connection timeout during setup, not as a permission error.
 :::
 
 ## Deploy

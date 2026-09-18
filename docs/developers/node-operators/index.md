@@ -78,7 +78,7 @@ cannot derive these, and guessing them will silently fork you off the chain:
 
 | Value | What it is |
 |---|---|
-| `PORTAL` | The main node's portal endpoint. **Must be given to you as a literal `http://<IPv4>:<port>` URL** — the tooling rejects DNS names (see the traps on each page). |
+| `PORTAL` | The main node's portal endpoint. **Must be given to you as a literal `http://<IPv4>:<port>` URL** — the tooling rejects DNS names (see the traps on each page). Ask which address applies to *your* node: the portal port is not open to the whole internet, and on a shared private network the reachable address is the main node's **internal** one. Its public address can be filtered even for a node on the same network. |
 | `TXPROXY` | Where your node forwards transactions it receives. |
 | `MAIN_OP_GETH_ENODE` | The main node's execution-client enode, used as your bootnode. |
 | The L2 p2p endpoints | The main node's `op-node` and `op-geth` gossip addresses and ports, for your egress rules. |
