@@ -97,6 +97,27 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Run a Node",
+      link: {
+        type: "doc",
+        id: "developers/node-operators/index",
+      },
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          label: "Follower Node",
+          id: "developers/node-operators/follower-node",
+        },
+        {
+          type: "doc",
+          label: "Gateway",
+          id: "developers/node-operators/gateway-node",
+        },
+      ]
+    },
+    {
+      type: "category",
       label: "Reference",
       link: {
         type: "generated-index",
