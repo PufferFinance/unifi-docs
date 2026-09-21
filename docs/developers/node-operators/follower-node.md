@@ -119,14 +119,22 @@ are deliberately not enabled.
 Do not stop at "the containers are up". Each of these catches a different failure, and the last one
 is the only check that proves preconfirmations are working.
 
-**1. It did not re-initialise or rewind.** This fails silently and costs a full resync:
+**1. It loaded your genesis, and did not rewind.** This fails silently and costs a full resync:
 
 ```bash
-docker logs follower-op-geth --since 5m 2>&1 | grep -c 'initializing geth datadir'   # 0 on a reused datadir
-docker logs follower-op-geth --since 5m 2>&1 | grep -ci 'rewinding blockchain'       # 0
-docker logs follower-op-geth --since 5m 2>&1 | grep 'Loaded most recent local block' # a sane height
-docker logs follower-op-geth --since 5m 2>&1 | grep -ci 'permission denied'          # 0
+docker logs follower-op-geth --since 5m 2>&1 | grep 'Successfully wrote genesis state' # present
+docker logs follower-op-geth --since 5m 2>&1 | grep -ci 'rewinding blockchain'         # 0
+docker logs follower-op-geth --since 5m 2>&1 | grep 'Loaded most recent local block'   # a sane height
+docker logs follower-op-geth --since 5m 2>&1 | grep -ci 'permission denied'            # 0
+docker logs follower-op-geth 2>&1 | grep -c 'Fatal:'                                   # 0
 ```
+
+Assert the first line positively rather than looking for the absence of an error. The execution
+client loads `genesis.json` directly at startup — there is no separate initialisation step — and it
+re-checks that genesis against the data it already has on **every** start. So the line appears every
+time, and its presence tells you both that the genesis you were given was accepted and that it still
+matches your existing chain data. If it is missing, or you see any `Fatal:`, the client stopped
+before it got that far and the reason is the last line of its own log.
 
 **2. It joined the mesh as a reader.** Expect a line saying this node is not a registered gateway and
 will mesh as a reader only. **That is success, not a warning** — it is what a follower is:
