@@ -5,9 +5,9 @@ slug: /developers/rollup/reference/contract-addresses
 
 ## Hoodi Testnet
 
-UniFi Testnet (chain ID `2092151908`) settles to **Hoodi** (chain ID `560048`). L1 addresses below link
+Puffer UniFi Testnet (chain ID `2092151908`) settles to **Hoodi** (chain ID `560048`). L1 addresses below link
 to [hoodi.etherscan.io](https://hoodi.etherscan.io); L2 addresses link to the
-[UniFi Testnet explorer](https://testnet-unifi-explorer.puffer.fi/).
+[Puffer UniFi Testnet explorer](https://testnet-unifi-explorer.puffer.fi/).
 
 ### L1 Addresses
 

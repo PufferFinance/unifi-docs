@@ -10,11 +10,11 @@ Because a gateway holds a temporary exclusive right to modify the L2 state, it c
 
 :::info
 This page describes the **target** gateway design: lookahead assignment, collateral and slashing.
-For how gateways are selected and how block production actually works on UniFi today, see
+For how gateways are selected and how block production actually works on Puffer UniFi today, see
 [The based-op Sequencing Stack](based-op-stack.md).
 :::
 
-## How UniFi runs gateways today
+## How Puffer UniFi runs gateways today
 
 The mechanics currently in production are covered in detail on
 [The based-op Sequencing Stack](based-op-stack.md). In short:
@@ -38,7 +38,7 @@ Subsequent gateways in the lookahead schedule (e.g. Gateway B in the diagram) mu
 
 Note that because these blocks are still not fully settled, there is still a possibility that a different batch will be posted on the L1, thus triggering a reorg on the L2.
 
-This is the problem UniFi's fragment gossip already solves in production — an incoming gateway has been applying its predecessor's fragments all along, so it starts its slot with current state.
+This is the problem Puffer UniFi's fragment gossip already solves in production — an incoming gateway has been applying its predecessor's fragments all along, so it starts its slot with current state.
 
 ### Settlement and slashing
 Gateways provide collateral to be able to enter the lookahead. The collateral is subject to slashing conditions e.g. when preconfirmation promises are reneged, but also to incentivise timely settlement of batches on the L1.
