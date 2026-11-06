@@ -38,6 +38,11 @@ const sidebars = {
           label: "UniFi Native Bridge",
           id: "developers/getting-started/bridge-ui",
         },
+        {
+          type: "doc",
+          label: "Bridging",
+          id: "developers/getting-started/bridging",
+        },
       ]
     },
     {
