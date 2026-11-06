@@ -5,17 +5,19 @@ slug: /developers/getting-started/bridge-ui
 
 # Using the Puffer UniFi Bridge
 
-The [Puffer UniFi Bridge](https://bridge-unifi.puffer.fi/) moves ETH between Ethereum mainnet and Puffer UniFi.
-You need a compatible wallet, such as MetaMask or Rabby, and some ETH on the chain you are bridging from.
+The [Puffer UniFi Testnet Bridge](https://testnet-unifi-bridge.puffer.fi/) moves ETH between the Hoodi testnet and Puffer UniFi Testnet.
+You need an EOA wallet, such as MetaMask or Rabby, and some ETH on the chain you are bridging from.
+Contract wallets, such as Safe, can't deposit through the bridge app.
+To get testnet ETH, see [Acquire Testnet Tokens](./acquire-testnet-tokens.md).
 
-| Network         | Chain ID | Bridge role |
-| --------------- | -------- | ----------- |
-| Ethereum        | `1`      | L1          |
-| Puffer UniFi    | `8686`   | L2          |
+| Network                | Chain ID     | Bridge role |
+| ---------------------- | ------------ | ----------- |
+| Ethereum Hoodi Testnet | `560048`     | L1          |
+| Puffer UniFi Testnet   | `2092151908` | L2          |
 
 ## How to bridge (deposit) ETH to Puffer UniFi
 
-1. Open the [Puffer UniFi Bridge](https://bridge-unifi.puffer.fi/).
+1. Open the [Puffer UniFi Testnet Bridge](https://testnet-unifi-bridge.puffer.fi/).
 2. Click **Connect wallet** and choose your wallet.
 
    ![Connecting the wallet](/img/bridge/connect-wallet.png)
@@ -23,8 +25,8 @@ You need a compatible wallet, such as MetaMask or Rabby, and some ETH on the cha
    Once connected, your balance and address appear in the top right corner.
 
    ![Connected wallet](/img/bridge/wallet-connected.png)
-3. Make sure **Ethereum** is the source chain and **Puffer UniFi** is the destination chain.
-   If your wallet is on Ethereum, the bridge fills these in for you. You can also pick a chain from the source chain list.
+3. Make sure **Ethereum Hoodi Testnet** is the source chain and **Puffer UniFi Testnet** is the destination chain.
+   If your wallet is on Hoodi, the bridge fills these in for you. You can also pick a chain from the source chain list.
 
    ![Chain selection](/img/bridge/select-chain.png)
 4. Select **ETH**, enter the amount you want to bridge, and press **Continue**.
@@ -46,18 +48,18 @@ You need a compatible wallet, such as MetaMask or Rabby, and some ETH on the cha
    **Failed** means the transfer did not go through.
 
    ![Transactions tab](/img/bridge/transaction-tab.png)
-8. Once the status is **Succeed**, switch your wallet to Puffer UniFi to see your bridged funds.
+8. Once the status is **Succeed**, switch your wallet to Puffer UniFi Testnet to see your bridged funds.
 
 ## How to bridge (withdraw) ETH from Puffer UniFi
 
-1. Select **Puffer UniFi** as the source chain and **Ethereum** as the destination chain.
+1. Select **Puffer UniFi Testnet** as the source chain and **Ethereum Hoodi Testnet** as the destination chain.
    You can press the swap button (⇅) between the two chains to reverse the direction.
 
    ![Withdrawal chain selection](/img/bridge/select-token-l2.png)
 
-2. The next steps are the same as for a deposit. Once the status is **Succeed**, switch your wallet to Ethereum to see your funds.
+2. The next steps are the same as for a deposit. Once the status is **Succeed**, switch your wallet to Hoodi to see your funds.
 
    :::info
    Withdrawals are processed automatically. There is no separate prove or claim step, and no seven-day
-   challenge period. Expect the funds to arrive on Ethereum after a few minutes.
+   challenge period. Expect the funds to arrive on Hoodi after a few minutes.
    :::
