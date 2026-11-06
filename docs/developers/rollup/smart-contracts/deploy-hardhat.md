@@ -10,7 +10,7 @@ Before you begin, ensure you:
 1. [Set up your wallet and acquired Testnet tokens](developers/getting-started/acquire-testnet-tokens.md).
 2. [Set up your Hardhat environment](https://hardhat.org/tutorial/setting-up-the-environment#2.-setting-up-the-environment).
 
-:::tip Concrete values for UniFi Testnet
+:::tip Concrete values for Puffer UniFi Testnet
 - `rpc_https_endpoint` = `https://testnet-unifi-rpc.puffer.fi/`
 - `block_explorer_url` = `https://testnet-unifi-explorer.puffer.fi/`
 - `chain_id` = `2092151908`
@@ -61,7 +61,7 @@ value in the script.
 
 ## Deploy the contract
 
-The sample project already includes the deployment script. To deploy on UniFi, you'll just need to make
+The sample project already includes the deployment script. To deploy on Puffer UniFi, you'll just need to make
 a few modifications to the `hardhat.config.js` file:
 
 1. Create a `.env` file in the root folder with your wallet's private key and [RPC Endpoint](../../reference/rpc-endpoints.md).
@@ -81,7 +81,7 @@ a few modifications to the `hardhat.config.js` file:
    npm i -D dotenv
    ```
 
-3. Add UniFi to your `hardhat.config.js` file. The following example shows how to add a RPC endpoint to the configuration file.
+3. Add Puffer UniFi to your `hardhat.config.js` file. The following example shows how to add a RPC endpoint to the configuration file.
 
    ```javascript
    require("@nomicfoundation/hardhat-toolbox");

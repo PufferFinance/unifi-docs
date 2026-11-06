@@ -1,14 +1,14 @@
 ---
-title: Run a UniFi Node
+title: Run a Puffer UniFi Node
 slug: /developers/node-operators
 ---
 
-# Run a UniFi Node
+# Run a Puffer UniFi Node
 
-**Who this is for:** developers who want their own RPC endpoint on UniFi, and infrastructure
+**Who this is for:** developers who want their own RPC endpoint on Puffer UniFi, and infrastructure
 providers who want to run sequencing infrastructure for the network.
 
-UniFi is an OP Stack rollup with a based sequencing layer
+Puffer UniFi is an OP Stack rollup with a based sequencing layer
 ([based-op](../concepts/based-op-stack.md)). That means there is more than one kind of node, and the
 one you want depends on whether you are *reading* the chain or *building* blocks for it.
 
@@ -16,19 +16,19 @@ one you want depends on whether you are *reading* the chain or *building* blocks
 
 | Role | What it does | Runs it |
 |---|---|---|
-| **Follower** | Tracks the canonical chain and applies preconfirmation fragments. Serves RPC that reflects preconfirmed state. Builds nothing, holds no key. | **Anyone.** No coordination with UniFi beyond connection details. |
-| **Gateway** | Builds blocks. Orders transactions, emits fragments, signs and seals. Takes turns with the other registered gateways. | **Third parties, by arrangement.** UniFi has to add you to the registry. |
+| **Follower** | Tracks the canonical chain and applies preconfirmation fragments. Serves RPC that reflects preconfirmed state. Builds nothing, holds no key. | **Anyone.** No coordination with Puffer UniFi beyond connection details. |
+| **Gateway** | Builds blocks. Orders transactions, emits fragments, signs and seals. Takes turns with the other registered gateways. | **Third parties, by arrangement.** Puffer UniFi has to add you to the registry. |
 | **TEE prover** | Executes blocks inside a trusted execution environment and produces the attested proofs that back [instant withdrawals](../concepts/tee-multi-prover.md). | **By arrangement, and needs TDX or SEV-SNP hardware.** |
-| **Main node** | The rollup's `op-node`/`op-batcher`/`op-proposer`, the portal, the gateway registry and the transaction proxy. | **UniFi.** One per network. |
+| **Main node** | The rollup's `op-node`/`op-batcher`/`op-proposer`, the portal, the gateway registry and the transaction proxy. | **Puffer UniFi.** One per network. |
 
 ### Which one do you want?
 
 - **"I need an RPC endpoint I control"** — a [follower](./follower-node.md). This is the common case.
   It needs no key, no registration and no inbound firewall rules, and it serves preconfirmed state,
   so it behaves like the public endpoint rather than like a plain OP Stack node.
-- **"I want to sequence for UniFi"** — a [gateway](./gateway-node.md). Read the trust model on that
-  page before you start; running one means holding a signing key and sharing a JWT with UniFi.
-- **"I want to run a prover"** — talk to the UniFi team first. Proving needs attested hardware and a
+- **"I want to sequence for Puffer UniFi"** — a [gateway](./gateway-node.md). Read the trust model on that
+  page before you start; running one means holding a signing key and sharing a JWT with Puffer UniFi.
+- **"I want to run a prover"** — talk to the Puffer UniFi team first. Proving needs attested hardware and a
   registration on L1, and the deployment is not self-service.
 
 :::info
@@ -44,7 +44,7 @@ repository:
 **[github.com/PufferFinance/unifi-op](https://github.com/PufferFinance/unifi-op)**
 
 Access is granted to developers and infrastructure providers who want to run a node — contact the
-UniFi team to be added, and mention which role you intend to run. The deep links to runbooks on the
+Puffer UniFi team to be added, and mention which role you intend to run. The deep links to runbooks on the
 following pages are inside that repository and will 404 until you have access.
 
 Everything you need is in the repo: `devnet-deployment/` holds the compose templates and a `make`
@@ -71,7 +71,7 @@ $ git clone https://github.com/PufferFinance/unifi-op.git
 fatal: could not read Username for 'https://github.com'
 ```
 
-## What UniFi gives you when you are onboarded
+## What Puffer UniFi gives you when you are onboarded
 
 Every role needs the same small set of connection details for the network you are joining. You
 cannot derive these, and guessing them will silently fork you off the chain:
@@ -85,7 +85,7 @@ cannot derive these, and guessing them will silently fork you off the chain:
 | The canonical fork-activation timestamps | e.g. Isthmus. Needed only if your node hits a fork-order error at startup. **Never pick one yourself.** |
 
 You supply your own L1 execution and beacon RPC endpoints (`L1_RPC_URL`, `L1_BEACON_RPC_URL`), or
-use the ones UniFi uses. They must be on the L1 the network settles to — see
+use the ones Puffer UniFi uses. They must be on the L1 the network settles to — see
 [Network & RPC Endpoints](../reference/rpc-endpoints.md).
 
 The chain's `genesis.json` and `rollup.json` are fetched from the portal automatically during setup.

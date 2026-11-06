@@ -5,14 +5,14 @@ slug: /developers/reference/L1-to-L2-composability-examples
 
 # L2 Reads from L1
 
-:::warning Not yet available on UniFi Testnet
+:::warning Not yet available on Puffer UniFi Testnet
 The Signal Service and the L1↔L2 synchronous composability it enables are **not yet deployed to
-UniFi Testnet**. The examples on this page describe the intended developer experience and cannot be
+Puffer UniFi Testnet**. The examples on this page describe the intended developer experience and cannot be
 run against the testnet today. This page will be updated with deployed contract addresses once the
 feature ships.
 :::
 
-This page provides practical examples of how to implement L1↔L2 synchronous composability using UniFi's Signal Service. These examples demonstrate how L2 contracts can read and consume data from L1 within the same slot.
+This page provides practical examples of how to implement L1↔L2 synchronous composability using Puffer UniFi's Signal Service. These examples demonstrate how L2 contracts can read and consume data from L1 within the same slot.
 
 *Note: Example code is illustrative - actual implementation may vary*
 
@@ -177,7 +177,7 @@ function processDataWithFallback(uint256 data, uint256 blockNumber) external ret
 
 When testing Signal Service integration:
 
-1. **Testnet Environment**: Use UniFi's testnet for realistic testing
+1. **Testnet Environment**: Use Puffer UniFi's testnet for realistic testing
 2. **Mock Signals**: Create mock signals for unit testing
 3. **Edge Cases**: Test signal failures and fallback scenarios
 4. **Gas Optimization**: Monitor gas usage for signal operations

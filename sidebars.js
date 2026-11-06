@@ -35,7 +35,7 @@ const sidebars = {
         },
         {
           type: "doc",
-          label: "UniFi Native Bridge",
+          label: "Puffer UniFi Native Bridge",
           id: "developers/getting-started/bridge-ui",
         },
       ]

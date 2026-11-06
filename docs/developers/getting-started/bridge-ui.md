@@ -1,49 +1,65 @@
 ---
-title: How to use UniFi Bridge
+title: How to use the Puffer UniFi Bridge
 slug: /developers/getting-started/bridge-ui
 ---
 
-# Using the UniFi Bridge
+# Using the Puffer UniFi Bridge
 
-In order to use the UniFi Rollup Bridge, you need to have a compatible wallet and some funds on the L1 network.
-This guide will help you bridge your funds from the L1 network to the UniFi Rollup network.
+The [Puffer UniFi Testnet Bridge](https://testnet-unifi-bridge.puffer.fi/) moves ETH between the Hoodi testnet and Puffer UniFi Testnet.
+You need an EOA wallet, such as MetaMask or Rabby, and some ETH on the chain you are bridging from.
+Contract wallets, such as Safe, can't deposit through the bridge app.
+To get testnet ETH, see [Acquire Testnet Tokens](./acquire-testnet-tokens.md).
 
-## How to bridge (deposit) ETH to UniFi
+| Network                | Chain ID     | Bridge role |
+| ---------------------- | ------------ | ----------- |
+| Ethereum Hoodi Testnet | `560048`     | L1          |
+| Puffer UniFi Testnet   | `2092151908` | L2          |
 
+## How to bridge (deposit) ETH to Puffer UniFi
 
-1. Open the [UniFi Rollup Bridge UI](https://testnet-unifi-bridge.puffer.fi/).
-2. Connect your preferred wallet.
+1. Open the [Puffer UniFi Testnet Bridge](https://testnet-unifi-bridge.puffer.fi/).
+2. Click **Connect wallet** and choose your wallet.
 
-   ![Connecting the wallet](/img/rollup/connect-wallet.png)
-3. Switch your connected network to L1 (Hoodi).
+   ![Connecting the wallet](/img/bridge/connect-wallet.png)
 
-   - This can be done manually from the top right corner of the page by clicking on your wallet address.
+   Once connected, your balance and address appear in the top right corner.
 
-4. Select the token and the amount you want to bridge and press continue.
-   ![Token selection](/img/rollup/select-token.png)
-5. Review the transaction details and press confirm.
-   ![Transaction confirmation](/img/rollup/confirm-transaction.png)
+   ![Connected wallet](/img/bridge/wallet-connected.png)
+3. Make sure **Ethereum Hoodi Testnet** is the source chain and **Puffer UniFi Testnet** is the destination chain.
+   If your wallet is on Hoodi, the bridge fills these in for you. You can also pick a chain from the source chain list.
+
+   ![Chain selection](/img/bridge/select-chain.png)
+4. Select **ETH**, enter the amount you want to bridge, and press **Continue**.
+   The estimated fee is shown under the amount.
+
+   ![Token and amount selection](/img/bridge/select-token.png)
+5. Review the transfer details and the recipient address, then press **Continue**.
+   By default, the recipient is your own address. Use **Edit** to change it.
+
+   ![Transaction review](/img/bridge/review-transaction.png)
+6. Press **Bridge** and accept the transaction in your wallet.
+
+   ![Transaction confirmation](/img/bridge/confirm-transaction.png)
    :::info
    When bridging ERC20 tokens, you will have an additional transaction to approve the bridge contract to spend your tokens.
    :::
-6. Accept the transaction in your wallet.
-7. Track the transaction in the Transactions tab.
-   ![Transaction tab](/img/rollup/transaction-tab.png)
+7. Track the transaction in the **Transactions** tab.
+   The status shows **Processing** while the transfer is in progress and **Succeed** once it is complete.
+   **Failed** means the transfer did not go through.
+
+   ![Transactions tab](/img/bridge/transaction-tab.png)
+8. Once the status is **Succeed**, switch your wallet to Puffer UniFi Testnet to see your bridged funds.
+
+## How to bridge (withdraw) ETH from Puffer UniFi
+
+1. Select **Puffer UniFi Testnet** as the source chain and **Ethereum Hoodi Testnet** as the destination chain.
+   You can press the swap button (⇅) between the two chains to reverse the direction.
+
+   ![Withdrawal chain selection](/img/bridge/select-token-l2.png)
+
+2. The next steps are the same as for a deposit. Once the status is **Succeed**, switch your wallet to Hoodi to see your funds.
+
    :::info
-   Transaction tab may not be working as expected, however, it does not affect the bridging process. You will see your bridged funds in the L2 network in around just 1 minute.
-   :::
-8. After a few minutes, the transaction will be confirmed and the status will change to Claimed.
-   ![Claimed transaction](/img/rollup/claimed-transaction.png)
-9. Once the transaction is confirmed, you can switch to the L2 network (UniFi) and see your bridged funds in your wallet.
-
-## How to bridge (withdraw) ETH from UniFi
-
-1. Make sure that you've selected UniFi Testnet as your source chain
-   ![Token Selection L2](/img/rollup/select-token-l2.png)
-
-2. The next steps are the same as when depositing ETH. Once the transaction is confirmed, you can switch to the L1 network (Hoodi) and see your bridged funds in your wallet.
-
-   :::info
-   Withdrawals are processed automatically — there is no separate prove or claim step, and no seven-day
-   challenge period. Expect the funds to land on L1 after a few minutes.
+   Withdrawals are processed automatically. There is no separate prove or claim step, and no seven-day
+   challenge period. Expect the funds to arrive on Hoodi after a few minutes.
    :::
