@@ -33,3 +33,34 @@ to [hoodi.etherscan.io](https://hoodi.etherscan.io); L2 addresses link to the
 | OptimismMintableERC20Factory      | [0x4200000000000000000000000000000000000012](https://testnet-unifi-explorer.puffer.fi/address/0x4200000000000000000000000000000000000012) |
 | L1Block      | [0x4200000000000000000000000000000000000015](https://testnet-unifi-explorer.puffer.fi/address/0x4200000000000000000000000000000000000015) |
 | GasPriceOracle      | [0x420000000000000000000000000000000000000F](https://testnet-unifi-explorer.puffer.fi/address/0x420000000000000000000000000000000000000F) |
+
+## Sepolia Testnet
+
+Puffer UniFi Testnet on Sepolia (chain ID `396776559`) settles to **Sepolia** (chain ID `11155111`). L1 addresses below
+link to [sepolia.etherscan.io](https://sepolia.etherscan.io); L2 addresses link to the
+[Puffer UniFi Testnet on Sepolia explorer](https://testnet-sepolia-unifi-explorer.puffer.fi/).
+
+### L1 Addresses
+
+| Contract | Address |
+|---|---|
+| L1StandardBridge | [0x29adA3191032Ac82aA69f73fA40eB1D6991a6699](https://sepolia.etherscan.io/address/0x29adA3191032Ac82aA69f73fA40eB1D6991a6699) |
+| L1CrossDomainMessenger | [0x222AB02e8c86C170faa44803298662e63251272B](https://sepolia.etherscan.io/address/0x222AB02e8c86C170faa44803298662e63251272B) |
+| OptimismPortal | [0x31d6c448E1F602aE02c30260e090F999E27d643B](https://sepolia.etherscan.io/address/0x31d6c448E1F602aE02c30260e090F999E27d643B) |
+| SystemConfig | [0xd52F98E739695963f2e324a15E79d893A2C0a016](https://sepolia.etherscan.io/address/0xd52F98E739695963f2e324a15E79d893A2C0a016) |
+| DisputeGameFactory | [0xd47c03E49432FAEe2a80Ad5204F9aa777c89aa08](https://sepolia.etherscan.io/address/0xd47c03E49432FAEe2a80Ad5204F9aa777c89aa08) |
+| TEE Prover Registry | [0x4CDBBf38B93B9FB2c51F3C0d4fC89bB025B2ee4F](https://sepolia.etherscan.io/address/0x4CDBBf38B93B9FB2c51F3C0d4fC89bB025B2ee4F) |
+| TEE Attestation Verifier | [0x9430B8C1da2b02492FCF898D81a10443493a5980](https://sepolia.etherscan.io/address/0x9430B8C1da2b02492FCF898D81a10443493a5980) |
+| Automata DCAP Attestation | [0x27188ABA3a26CBb806eF4C67de9b05D7d792EC10](https://sepolia.etherscan.io/address/0x27188ABA3a26CBb806eF4C67de9b05D7d792EC10) |
+| Automata SNP Attestation | [0x84d19f7F2e07766ea16D1c24f7e0828FA11273A2](https://sepolia.etherscan.io/address/0x84d19f7F2e07766ea16D1c24f7e0828FA11273A2) |
+
+### L2 Addresses
+
+| Contract | Address |
+|---|---|
+| L2StandardBridge | [0x4200000000000000000000000000000000000010](https://testnet-sepolia-unifi-explorer.puffer.fi/address/0x4200000000000000000000000000000000000010) |
+| L2CrossDomainMessenger | [0x4200000000000000000000000000000000000007](https://testnet-sepolia-unifi-explorer.puffer.fi/address/0x4200000000000000000000000000000000000007) |
+| L2ToL1MessagePasser | [0x4200000000000000000000000000000000000016](https://testnet-sepolia-unifi-explorer.puffer.fi/address/0x4200000000000000000000000000000000000016) |
+| OptimismMintableERC20Factory | [0x4200000000000000000000000000000000000012](https://testnet-sepolia-unifi-explorer.puffer.fi/address/0x4200000000000000000000000000000000000012) |
+| L1Block | [0x4200000000000000000000000000000000000015](https://testnet-sepolia-unifi-explorer.puffer.fi/address/0x4200000000000000000000000000000000000015) |
+| GasPriceOracle | [0x420000000000000000000000000000000000000F](https://testnet-sepolia-unifi-explorer.puffer.fi/address/0x420000000000000000000000000000000000000F) |

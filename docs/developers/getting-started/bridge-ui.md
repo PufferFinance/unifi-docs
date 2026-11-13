@@ -5,19 +5,20 @@ slug: /developers/getting-started/bridge-ui
 
 # Using the Puffer UniFi Bridge
 
-The [Puffer UniFi Testnet Bridge](https://testnet-unifi-bridge.puffer.fi/) moves ETH between the Hoodi testnet and Puffer UniFi Testnet.
+The [Puffer UniFi Testnet Bridge](https://testnet-sepolia-unifi-bridge.puffer.fi/) moves ETH between the Sepolia testnet and Puffer UniFi Testnet.
 You need an EOA wallet, such as MetaMask or Rabby, and some ETH on the chain you are bridging from.
 Contract wallets, such as Safe, can't deposit through the bridge app.
-To get testnet ETH, see [Acquire Testnet Tokens](./acquire-testnet-tokens.md).
+To deposit, you need Sepolia ETH, which you can get from a public Sepolia faucet.
+For the network details, see [Network & RPC Endpoints](../reference/rpc-endpoints.md#puffer-unifi-testnet-on-sepolia).
 
-| Network                | Chain ID     | Bridge role |
-| ---------------------- | ------------ | ----------- |
-| Ethereum Hoodi Testnet | `560048`     | L1          |
-| Puffer UniFi Testnet   | `2092151908` | L2          |
+| Network                  | Chain ID    | Bridge role |
+| ------------------------ | ----------- | ----------- |
+| Ethereum Sepolia Testnet | `11155111`  | L1          |
+| Puffer UniFi Testnet     | `396776559` | L2          |
 
 ## How to bridge (deposit) ETH to Puffer UniFi
 
-1. Open the [Puffer UniFi Testnet Bridge](https://testnet-unifi-bridge.puffer.fi/).
+1. Open the [Puffer UniFi Testnet Bridge](https://testnet-sepolia-unifi-bridge.puffer.fi/).
 2. Click **Connect wallet** and choose your wallet.
 
    ![Connecting the wallet](/img/bridge/connect-wallet.png)
@@ -25,8 +26,8 @@ To get testnet ETH, see [Acquire Testnet Tokens](./acquire-testnet-tokens.md).
    Once connected, your balance and address appear in the top right corner.
 
    ![Connected wallet](/img/bridge/wallet-connected.png)
-3. Make sure **Ethereum Hoodi Testnet** is the source chain and **Puffer UniFi Testnet** is the destination chain.
-   If your wallet is on Hoodi, the bridge fills these in for you. You can also pick a chain from the source chain list.
+3. Make sure **Sepolia** is the source chain and **Puffer UniFi Testnet** is the destination chain.
+   If your wallet is on Sepolia, the bridge fills these in for you. You can also pick a chain from the source chain list.
 
    ![Chain selection](/img/bridge/select-chain.png)
 4. Select **ETH**, enter the amount you want to bridge, and press **Continue**.
@@ -52,14 +53,14 @@ To get testnet ETH, see [Acquire Testnet Tokens](./acquire-testnet-tokens.md).
 
 ## How to bridge (withdraw) ETH from Puffer UniFi
 
-1. Select **Puffer UniFi Testnet** as the source chain and **Ethereum Hoodi Testnet** as the destination chain.
+1. Select **Puffer UniFi Testnet** as the source chain and **Sepolia** as the destination chain.
    You can press the swap button (⇅) between the two chains to reverse the direction.
 
    ![Withdrawal chain selection](/img/bridge/select-token-l2.png)
 
-2. The next steps are the same as for a deposit. Once the status is **Succeed**, switch your wallet to Hoodi to see your funds.
+2. The next steps are the same as for a deposit. Once the status is **Succeed**, switch your wallet to Sepolia to see your funds.
 
    :::info
    Withdrawals are processed automatically. There is no separate prove or claim step, and no seven-day
-   challenge period. Expect the funds to arrive on Hoodi after a few minutes.
+   challenge period. Expect the funds to arrive on Sepolia after a few minutes.
    :::

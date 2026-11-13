@@ -28,6 +28,24 @@ preconfirmation window — see
 [Preconfirmation RPC Semantics](./preconfirmation-rpc-semantics.md) before you build against this endpoint.
 :::
 
+## Puffer UniFi Testnet on Sepolia
+
+A second Puffer UniFi Testnet settles to the **Sepolia** L1 testnet (chain ID `11155111`).
+
+| Parameter          | Value                                    |
+|--------------------|------------------------------------------|
+| Network Name       | `Puffer UniFi Testnet`                   |
+| Chain ID           | `396776559`                              |
+| Currency Symbol    | ETH                                      |
+| Block Explorer     | https://testnet-sepolia-unifi-explorer.puffer.fi/ |
+| RPC URL            | https://testnet-sepolia-unifi-rpc.puffer.fi/ |
+| Explorer API (contract verification) | https://testnet-sepolia-unifi-explorer.puffer.fi/api |
+| Bridge             | https://testnet-sepolia-unifi-bridge.puffer.fi/ |
+| Contract Addresses | See [here](./contract-addresses.md#sepolia-testnet) |
+
+The public RPC serves HTTP only, with no WebSocket. There is no faucet: use a public Sepolia faucet and
+[bridge](../getting-started/bridge-ui.md) the ETH.
+
 ## Running your own endpoint
 
 The public endpoint above is a follower node, and you can run the same thing yourself — it serves
