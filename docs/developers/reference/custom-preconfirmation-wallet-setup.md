@@ -5,7 +5,7 @@ slug: /developers/reference/custom-preconfirmation-wallet-setup
 
 # Custom Wallet Setup for Pre-confirmations
 
-This guide explains how to set up a custom wallet that supports pre-confirmations to experience instant transaction confirmations on UniFi Rollup. We recommend using the modified version of Rabby wallet provided in the [based-op repository](https://github.com/gattaca-com/based-op?tab=readme-ov-file#wallets), which supports pre-confirmations. Follow these steps to build and install it:
+This guide explains how to set up a custom wallet that supports pre-confirmations to experience instant transaction confirmations on Puffer UniFi. We recommend using the modified version of Rabby wallet provided in the [based-op repository](https://github.com/gattaca-com/based-op?tab=readme-ov-file#wallets), which supports pre-confirmations. Follow these steps to build and install it:
 
 ### 1. Build the Modified Rabby Extension
 
@@ -37,7 +37,7 @@ For detailed browser-specific instructions, see:
 - [Chrome Extension Installation](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked)
 - [Firefox Extension Installation](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 
-## Connecting to UniFi Testnet
+## Connecting to Puffer UniFi Testnet
 
 > [!WARNING]
 > You must have the modified Rabby extension installed before proceeding.
@@ -48,7 +48,7 @@ For detailed browser-specific instructions, see:
 4. Scroll down to the "Settings" section
 5. Click on "Add Custom Network"
 6. Fill the form with the following values:
-   - **Network Name**: `UniFi Testnet`
+   - **Network Name**: `Puffer UniFi Testnet`
    - **RPC URL**: `https://testnet-unifi-rpc.puffer.fi/`
    - **Chain ID**: `2092151908`
    - **Symbol**: `ETH`
@@ -58,11 +58,11 @@ For detailed browser-specific instructions, see:
 
 ## Experiencing Pre-confirmations
 
-Once you have the modified Rabby wallet connected to UniFi Testnet:
+Once you have the modified Rabby wallet connected to Puffer UniFi Testnet:
 
 1. Open your Rabby extension
 2. Click on "Send"
-3. Select "UniFi Testnet" from the chain dropdown
+3. Select "Puffer UniFi Testnet" from the chain dropdown
 4. Fill out the transaction details
 5. Click on "Send"
 6. Sign the transaction
@@ -75,4 +75,4 @@ The modified Rabby wallet includes:
 - Support for pre-confirmation detection
 - Enhanced UI feedback for instant confirmations
 
-This allows you to experience the true speed of UniFi's pre-confirmation system, where transactions are confirmed in milliseconds rather than waiting for block finalization.
+This allows you to experience the true speed of Puffer UniFi's pre-confirmation system, where transactions are confirmed in milliseconds rather than waiting for block finalization.

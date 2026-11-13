@@ -5,7 +5,7 @@ import katex from 'rehype-katex';
 
 module.exports = {
   title: "Puffer UniFi Docs",
-  tagline: "Documentation for the Puffer UniFi Rollup",
+  tagline: "Documentation for Puffer UniFi",
   url: "https://docs-unifi.puffer.fi",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -60,7 +60,7 @@ module.exports = {
       additionalLanguages: ["solidity"],
     },
     navbar: {
-      title: "UniFi Docs",
+      title: "Puffer UniFi Docs",
       logo: {
         alt: "Puffer Logo",
         src: "img/Logo Mark.svg",
