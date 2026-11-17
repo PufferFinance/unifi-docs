@@ -102,8 +102,8 @@ simply does not get preconfirmations.
 ### The unsealed block
 
 The block being assembled from fragments is the **unsealed block**. It is where preconfirmed state
-lives, and it is why `latest` on UniFi can be one block ahead of the `latest` *block*. The exact
-per-method behaviour is a contract you should read before integrating:
+lives, and RPC reads at `pending` see it; `latest` is the sealed head. The exact per-method
+behaviour is a contract you should read before integrating:
 [Preconfirmation RPC Semantics](../reference/preconfirmation-rpc-semantics.md).
 
 ## Gateway rotation
