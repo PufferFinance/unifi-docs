@@ -5,7 +5,7 @@ slug: /developers/concepts/signal-service
 
 # Signal Service
 
-Signal Service enables same-slot L1↔L2 message passing in UniFi, allowing atomic operations between Ethereum and the L2 within a single block. This breakthrough capability is uniquely achievable by Based Rollups like UniFi, which have direct control over sequencing and transaction inclusion on both L1 and L2.
+Signal Service enables same-slot L1↔L2 message passing in Puffer UniFi, allowing atomic operations between Ethereum and the L2 within a single block. This breakthrough capability is uniquely achievable by Based Rollups like Puffer UniFi, which have direct control over sequencing and transaction inclusion on both L1 and L2.
 
 ## Architecture Overview
 
@@ -43,7 +43,7 @@ Execute operations across L1 and L2 within the same Ethereum block, enabling tru
 Signal Service complements rather than replaces OP Stack's existing message passing system, ensuring backward compatibility and minimal infrastructure changes.
 
 ### Sequencer Autonomy
-As a Based Rollup, UniFi's sequencing is controlled by Ethereum validators, providing strong guarantees against censorship while maintaining the flexibility to include signals atomically.
+As a Based Rollup, Puffer UniFi's sequencing is controlled by Ethereum validators, providing strong guarantees against censorship while maintaining the flexibility to include signals atomically.
 
 ### Fallback Safety
 Signals that cannot be processed same-slot automatically fall back to traditional block header verification, ensuring reliability without compromising user experience.
@@ -92,7 +92,7 @@ To integrate Signal Service into your application:
 1. Deploy contracts that interface with L1 and L2 Signal Service contracts
 2. Implement signal registration logic in your L1 contracts
 3. Add signal consumption logic to your L2 contracts
-4. Test atomic operations in UniFi's testnet environment
+4. Test atomic operations in Puffer UniFi's testnet environment
 
 For practical examples of L1↔L2 composability, see [L1 to L2 Composability Examples](../reference/L1-to-L2-composability-examples.md).
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy a Smart Contract on UniFi using Foundry
+title: Deploy a Smart Contract on Puffer UniFi using Foundry
 slug: /developers/rollup/smart-contracts/foundry
 ---
 
@@ -20,7 +20,7 @@ Before you begin, ensure you've:
    cast, anvil, and chisel. For additional options, such as installing a specific version or commit, run `foundryup --help`
    :::
 
-:::tip Concrete values for UniFi Testnet
+:::tip Concrete values for Puffer UniFi Testnet
 - `rpc_https_endpoint` = `https://testnet-unifi-rpc.puffer.fi/`
 - `block_explorer_url` = `https://testnet-unifi-explorer.puffer.fi/`
 - `chain_id` = `2092151908`
@@ -62,7 +62,7 @@ forge create --broadcast --rpc-url <rpc_https_endpoint> src/Counter.sol:Counter 
 In the command:
 
 - `--broadcast` specifies that the deployment transaction should be broadcast to the network. Otherwise, the transaction is dry-run on the local node.
-- `rpc_https_endpoint` is a RPC Endpoint for the UniFi network. You can find the endpoints in the
+- `rpc_https_endpoint` is a RPC Endpoint for the Puffer UniFi network. You can find the endpoints in the
 [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
 - `your_private_key` is your wallet's private key.
 
@@ -86,12 +86,12 @@ forge verify-contract --rpc-url <rpc_https_endpoint> --verifier blockscout --ver
 
 In the command:
 
-- `rpc_https_endpoint` is a RPC Endpoint for the UniFi network. You can find the endpoints in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
+- `rpc_https_endpoint` is a RPC Endpoint for the Puffer UniFi network. You can find the endpoints in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
 - `contract_address` is the address of the contract you want to verify.
 - `block_explorer_url` is the URL of the block explorer you're using. You can find the endpoints
 in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
 
-For UniFi Testnet, the full command is:
+For Puffer UniFi Testnet, the full command is:
 
 ```bash
 forge verify-contract --rpc-url https://testnet-unifi-rpc.puffer.fi/ --verifier blockscout \
@@ -106,7 +106,7 @@ forge create --rpc-url <rpc_https_endpoint> --private-key <your_private_key> src
 
 In the command:
 
-- `rpc_https_endpoint` is a RPC Endpoint for the UniFi network. You can find the endpoints in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
+- `rpc_https_endpoint` is a RPC Endpoint for the Puffer UniFi network. You can find the endpoints in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).
 - `your_private_key` is your wallet's private key.
 - `block_explorer_url` is the URL of the block explorer you're using. You can find the endpoints
 in the [RPC Endpoints Reference](../../reference/rpc-endpoints.md).

@@ -5,16 +5,16 @@ slug: /developers/concepts/based-op-stack
 
 # The based-op Sequencing Stack
 
-**Who this is for:** anyone who wants to understand how a UniFi block is actually produced — where
+**Who this is for:** anyone who wants to understand how a Puffer UniFi block is actually produced — where
 preconfirmations come from, what a "fragment" is, and how the pieces fit together.
 
-UniFi's sequencing layer is built on [Gattaca's based-op](https://github.com/gattaca-com/based-op),
-an implementation of based sequencing for the OP Stack. UniFi runs its own fork and has maintained
-and extended it since; this page describes the stack as UniFi runs it, so you do not have to
+Puffer UniFi's sequencing layer is built on [Gattaca's based-op](https://github.com/gattaca-com/based-op),
+an implementation of based sequencing for the OP Stack. Puffer UniFi runs its own fork and has maintained
+and extended it since; this page describes the stack as Puffer UniFi runs it, so you do not have to
 reconstruct it from upstream material.
 
 :::info
-This page covers the **sequencing** half of UniFi. For how L2 state is proven back to L1, see
+This page covers the **sequencing** half of Puffer UniFi. For how L2 state is proven back to L1, see
 [TEE Multi Prover](tee-multi-prover.md); for same-slot L1→L2 messaging, see
 [Signal Service](signal-service.md).
 :::
@@ -25,7 +25,7 @@ A standard OP Stack chain produces a block, seals it, and only then tells anyone
 splits block production into **fragments**: the sequencer streams the block out in pieces while it
 is still being built, and other nodes execute those pieces as they arrive. A user's transaction is
 visible — with a receipt, and reflected in state reads — as soon as the fragment containing it is
-broadcast, rather than when the block seals. That is what a UniFi preconfirmation is.
+broadcast, rather than when the block seals. That is what a Puffer UniFi preconfirmation is.
 
 ## Components
 
@@ -102,7 +102,7 @@ simply does not get preconfirmations.
 ### The unsealed block
 
 The block being assembled from fragments is the **unsealed block**. It is where preconfirmed state
-lives, and it is why `latest` on UniFi can be one block ahead of the `latest` *block*. The exact
+lives, and it is why `latest` on Puffer UniFi can be one block ahead of the `latest` *block*. The exact
 per-method behaviour is a contract you should read before integrating:
 [Preconfirmation RPC Semantics](../reference/preconfirmation-rpc-semantics.md).
 
@@ -139,7 +139,7 @@ Two consequences worth internalising as a developer:
 
 ## Execution clients
 
-Fragment support is implemented in **both** execution clients UniFi maintains:
+Fragment support is implemented in **both** execution clients Puffer UniFi maintains:
 
 - **op-geth** — the client the chain runs on today.
 - **op-reth** — a second implementation of the same fragment protocol and preconfirmed-read
@@ -149,12 +149,12 @@ Maintaining two implementations of the same protocol is deliberate: it keeps the
 honest and gives the proving stack execution-client diversity (see
 [TEE Multi Prover](tee-multi-prover.md)).
 
-## What UniFi changed on top of based-op
+## What Puffer UniFi changed on top of based-op
 
-The block-production design above is upstream based-op and UniFi has kept it. UniFi's own work has
+The block-production design above is upstream based-op and Puffer UniFi has kept it. Puffer UniFi's own work has
 gone into the surfaces around it — the things a developer or an operator actually touches:
 
-| Area | What UniFi added |
+| Area | What Puffer UniFi added |
 |---|---|
 | **Preconfirmation RPC contract** | A specified, tested contract for what every `eth_*` method returns during the preconfirmation window — preconfirmed state at `latest`, zero-`blockHash` receipts, sealed-only logs — rather than leaving it emergent. Documented in [Preconfirmation RPC Semantics](../reference/preconfirmation-rpc-semantics.md). |
 | **Second execution client** | The op-reth fragment port described above. |
@@ -165,7 +165,7 @@ gone into the surfaces around it — the things a developer or an operator actua
 
 ## Current status
 
-UniFi runs based-op's **Phase 1** design, and it is worth being precise about what that does and
+Puffer UniFi runs based-op's **Phase 1** design, and it is worth being precise about what that does and
 does not include today.
 
 | | Status |
@@ -182,10 +182,10 @@ heading toward.
 ## Running one of these yourself
 
 Followers and gateways are both deployable by third parties. See
-[Run a UniFi Node](../node-operators/index.md) for what each role requires and how to get access to
+[Run a Puffer UniFi Node](../node-operators/index.md) for what each role requires and how to get access to
 the deployment templates.
 
 ## Credits
 
 The sequencing stack originates in [Gattaca's based-op](https://github.com/gattaca-com/based-op).
-UniFi maintains a fork with the changes described above.
+Puffer UniFi maintains a fork with the changes described above.

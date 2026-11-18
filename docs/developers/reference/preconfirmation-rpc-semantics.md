@@ -5,9 +5,9 @@ slug: /developers/reference/preconfirmation-rpc-semantics
 
 # Preconfirmation RPC Semantics
 
-**Who this is for:** anyone integrating against a UniFi RPC endpoint.
+**Who this is for:** anyone integrating against a Puffer UniFi RPC endpoint.
 
-On UniFi, transactions are **preconfirmed** by the gateway before they are sealed into a block. A
+On Puffer UniFi, transactions are **preconfirmed** by the gateway before they are sealed into a block. A
 receipt appears within tens of milliseconds; the block seals up to ~1 second later. No method name
 or signature changes, which makes the differences from vanilla Ethereum easy to miss.
 

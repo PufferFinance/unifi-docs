@@ -1,6 +1,6 @@
 # Opcodes
 
-All opcodes are supported in UniFi and are EVM equivalent unless stated otherwise.
+All opcodes are supported in Puffer UniFi and are EVM equivalent unless stated otherwise.
 
 # Modified Opcodes
 

@@ -5,11 +5,11 @@ slug: /developers/getting-started/acquire-testnet-tokens
 
 # Acquire Testnet Tokens
 
-This guide will help you acquire UniFi Testnet tokens. Follow the steps below to get started.
+This guide will help you acquire Puffer UniFi Testnet tokens. Follow the steps below to get started.
 
 ## 1. Install a Compatible Wallet
 
-To interact with UniFi Rollup, you need an Ethereum wallet like MetaMask or any other compatible Ethereum wallet. The steps should be similar for other wallets.
+To interact with Puffer UniFi, you need an Ethereum wallet like MetaMask or any other compatible Ethereum wallet. The steps should be similar for other wallets.
 
 ### Installing MetaMask
 
@@ -17,12 +17,12 @@ To interact with UniFi Rollup, you need an Ethereum wallet like MetaMask or any 
 
 ## 2. Add the L2 Testnet to MetaMask
 
-To connect to the UniFi Testnet, follow these steps:
+To connect to the Puffer UniFi Testnet, follow these steps:
 
 1. Open MetaMask and click on the network dropdown.
 2. Select **Add network** → **Add a network manually**.
 3. Enter the following details:
-   - **Network Name**: `UniFi Testnet`
+   - **Network Name**: `Puffer UniFi Testnet`
    - **RPC URL**: `https://testnet-unifi-rpc.puffer.fi/`
    - **Chain ID**: `2092151908`
    - **Currency Symbol**: `ETH`

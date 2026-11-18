@@ -14,7 +14,7 @@ with a receipt, before it is in a sealed block — without putting that traffic 
 sequencing-adjacent node. This is the shape a public RPC endpoint takes.
 
 ```
-   UniFi main node                              Your follower VM
+   Puffer UniFi main node                       Your follower VM
    ┌──────────────────────────┐                 ┌──────────────────────────┐
    │ op-geth   op-node        │ ── L2 p2p ───►  │ follower-op-node         │
    │ Portal    Registry       │ ── fragments ─► │ follower-op-geth         │
@@ -26,7 +26,7 @@ sequencing-adjacent node. This is the shape a public RPC endpoint takes.
 
 - **No key of any kind.** No sequencing key, no attestation key. The only secret is a JWT generated
   locally and used solely between your own two containers.
-- **No registration and no coordination.** Nothing has to be added on UniFi's side. Your `op-node`
+- **No registration and no coordination.** Nothing has to be added on Puffer UniFi's side. Your `op-node`
   joins the fragment mesh **as a reader** by itself.
 - **No inbound firewall rules required.** A follower dials out and holds its peers with all inbound
   traffic blocked. Open inbound p2p only if you want to accept peers.
@@ -36,7 +36,7 @@ sequencing-adjacent node. This is the shape a public RPC endpoint takes.
 
 Work through the [common prerequisites](./index.md#common-prerequisites) — hardware, Docker, and
 especially NTP — and collect `PORTAL`, `TXPROXY` and your L1 endpoints from
-[what UniFi gives you](./index.md#what-unifi-gives-you-when-you-are-onboarded).
+[what Puffer UniFi gives you](./index.md#what-puffer-unifi-gives-you-when-you-are-onboarded).
 
 :::danger PORTAL must be a literal IPv4 address
 `make start-follower` parses the host out of `PORTAL` and hard-fails with
@@ -44,7 +44,7 @@ especially NTP — and collect `PORTAL`, `TXPROXY` and your L1 endpoints from
 needs the literal address because it rewrites the portal-reported gossip multiaddr to that host. If
 you were given a hostname, resolve it yourself and pass the address.
 
-It also has to be the *right* address. The portal port is firewalled, so confirm with UniFi which one
+It also has to be the *right* address. The portal port is firewalled, so confirm with Puffer UniFi which one
 your node should use — if you share a private network with the main node that is its **internal**
 address, and its public address may be filtered even from inside that network. A wrong-but-plausible
 value here fails as a connection timeout during setup, not as a permission error.
@@ -141,7 +141,7 @@ Its *absence* is ambiguous, so do not read that as failure on its own. There are
 |---|---|
 | `…will mesh as a reader only` | Success — the node announced itself and the registry confirmed it is not a gateway. |
 | `not publishing own p2p addr` | The address it would announce is unroutable, which is what `FOLLOWER_IP=0.0.0.0` gives you. Fix `FOLLOWER_IP`. |
-| `gateway-mesh: failed to publish p2p addr` / `failed to fetch peer addrs` | The **main node** does not serve the fragment-mesh registry calls. Nothing is wrong on your side — and **no fragments will arrive** until UniFi updates it. |
+| `gateway-mesh: failed to publish p2p addr` / `failed to fetch peer addrs` | The **main node** does not serve the fragment-mesh registry calls. Nothing is wrong on your side — and **no fragments will arrive** until Puffer UniFi updates it. |
 
 Measured against a main node in that third state, the first two greps both returned **zero**. Grep
 for all three.
@@ -163,7 +163,7 @@ count** — two different things produce that string:
   consensus client uses to find gateways, so you get
   `gateway-mesh: failed to fetch peer addrs` every 30 seconds. That is the *main node* missing the
   fragment-mesh methods, and it also stops fragments reaching you — nothing to do with your execution
-  client. Ask UniFi.
+  client. Ask Puffer UniFi.
 - An execution client's own phrasing for an unimplemented method may not contain the string at all.
 
 The positive count above it is the check that matters; a zero here is not evidence of health.
@@ -191,7 +191,7 @@ cannot fail for a reason you care about — and the third row shows the fields c
 `finalized`, on a node that is at the chain head with peers and answering `eth_getBlockByNumber`.
 
 Judge the preconfirmation path by step 3, and liveness by comparing your execution client's
-`eth_blockNumber` against the one UniFi publishes.
+`eth_blockNumber` against the one Puffer UniFi publishes.
 :::
 
 Note the `.result` prefix — without it every field reads `null`, which looks like a dead node. Take
@@ -252,13 +252,13 @@ activation times come from the `genesis.json` the portal serves, and the templat
 no `--override.<fork>` flag.
 
 It only arises on a chain that activates a fork at a timestamp partway through its life rather than
-from genesis, and where your node's view of that timestamp disagrees with the network's. UniFi Testnet
+from genesis, and where your node's view of that timestamp disagrees with the network's. Puffer UniFi Testnet
 is such a chain — its Isthmus activation is a specific timestamp, and op-geth additionally requires
 the Prague EIPs to be active no later than Isthmus, so a genesis whose `pragueTime` is later than its
 `isthmusTime` makes the execution client refuse to start. A chain whose forks are all active from
 genesis has no such window and needs no override.
 
-If you do hit it, **ask UniFi for the canonical timestamp** and set that value in both the execution
+If you do hit it, **ask Puffer UniFi for the canonical timestamp** and set that value in both the execution
 and consensus client commands in your local `compose.yml`, then recreate. **Never pick a timestamp
 yourself** — a value the network does not share forks you off the canonical chain, and you will never
 apply a fragment.

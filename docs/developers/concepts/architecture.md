@@ -1,17 +1,17 @@
 ---
-title: UniFi Architecture
+title: Puffer UniFi Architecture
 slug: /developers/concepts/architecture
 ---
 
-UniFi is an Ethereum Based Rollup with enabled preconfirmations, instant withdrawals, and L1↔L2 synchronous composability. Particularly preconfirmations are enabled by integrating Gateways, instant withdrawals are enabled by leveraging TEE proofs, and synchronous composability is enabled by leveraging Signal Service.
+Puffer UniFi is an Ethereum Based Rollup with enabled preconfirmations, instant withdrawals, and L1↔L2 synchronous composability. Particularly preconfirmations are enabled by integrating Gateways, instant withdrawals are enabled by leveraging TEE proofs, and synchronous composability is enabled by leveraging Signal Service.
 
 :::info
-UniFi's Signal Service implementation is based on OpenZeppelin's design in their Minimal Rollup architecture: https://github.com/OpenZeppelin/minimal-rollup/blob/main/documentation/signal-service.md
+Puffer UniFi's Signal Service implementation is based on OpenZeppelin's design in their Minimal Rollup architecture: https://github.com/OpenZeppelin/minimal-rollup/blob/main/documentation/signal-service.md
 :::
 
 ## Preconfirmations
 
-Preconfirmations in UniFi are enabled by **Gateways**, specialized sequencing entities that provide execution preconfirmations on behalf of L1 proposers.
+Preconfirmations in Puffer UniFi are enabled by **Gateways**, specialized sequencing entities that provide execution preconfirmations on behalf of L1 proposers.
 
 ### What are Gateways?
 
@@ -27,7 +27,7 @@ Gateways enable fast preconfirmations by:
 
 This design allows users to receive execution confirmations within milliseconds rather than waiting for L1 block finalization, significantly improving user experience while maintaining security through the underlying based rollup architecture.
 
-UniFi's sequencing layer is built on [Gattaca's based-op](https://github.com/gattaca-com/based-op).
+Puffer UniFi's sequencing layer is built on [Gattaca's based-op](https://github.com/gattaca-com/based-op).
 For how a block is actually produced — fragments, the gateway/portal/registry components, gateway
 rotation and what the fallback client guarantees — see
 [The based-op Sequencing Stack](based-op-stack.md). For how preconfirmations change what standard
@@ -36,11 +36,11 @@ RPC methods return, see
 
 ## Instant Withdrawals
 
-Instant withdrawals in UniFi enable users to withdraw funds from L2 to L1 immediately without waiting for the standard 7-day dispute period. This is achieved through **TEE (Trusted Execution Environment) proofs** that provide cryptographic guarantees of execution correctness.
+Instant withdrawals in Puffer UniFi enable users to withdraw funds from L2 to L1 immediately without waiting for the standard 7-day dispute period. This is achieved through **TEE (Trusted Execution Environment) proofs** that provide cryptographic guarantees of execution correctness.
 
 ### How Instant Withdrawals Work
 
-Traditional optimistic rollups require a challenge period where withdrawals can be disputed. UniFi bypasses this delay by using TEE-generated validity proofs that cryptographically prove the correctness of withdrawal transactions.
+Traditional optimistic rollups require a challenge period where withdrawals can be disputed. Puffer UniFi bypasses this delay by using TEE-generated validity proofs that cryptographically prove the correctness of withdrawal transactions.
 
 ### Instant Withdrawal Process
 
@@ -68,7 +68,7 @@ This design enables near-instant L2 to L1 transfers while preserving the securit
 
 ## L1↔L2 Synchronous Composability
 
-UniFi leverages **Signal Service** to enable same-slot L1→L2 message passing, achieving synchronous composability across layers. As a Based Rollup, UniFi is uniquely positioned to offer strong guarantees for cross-layer interactions while preserving existing OP Stack functionality.
+Puffer UniFi leverages **Signal Service** to enable same-slot L1→L2 message passing, achieving synchronous composability across layers. As a Based Rollup, Puffer UniFi is uniquely positioned to offer strong guarantees for cross-layer interactions while preserving existing OP Stack functionality.
 
 ### What is Signal Service?
 
@@ -76,7 +76,7 @@ Signal Service enables same-slot L1→L2 message passing by implementing a signa
 
 ### Why Signal Service for L1→L2 Only?
 
-UniFi uses Signal Service specifically for L1→L2 same-slot messaging because:
+Puffer UniFi uses Signal Service specifically for L1→L2 same-slot messaging because:
 
 1. **Preserve OP Stack**: We avoid extensive modifications to OP Stack's existing message passing system, which continues to function for non-same-slot operations
 2. **L2→L1 Already Solved**: OP Stack's existing L2→L1 message passing combined with TEE proofs already enables same-slot L2→L1 operations through instant withdrawals

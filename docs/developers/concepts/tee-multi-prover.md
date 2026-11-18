@@ -51,7 +51,7 @@ With this optimization, the verification cost for a single proof is reduced to n
 
 ## Multi-Client Architecture for Instant Withdrawals
 
-For instant withdrawals, UniFi employs a multi-client TEE architecture that uses diverse execution clients to generate validity proofs, ensuring system robustness through differential verification.
+For instant withdrawals, Puffer UniFi employs a multi-client TEE architecture that uses diverse execution clients to generate validity proofs, ensuring system robustness through differential verification.
 
 ![TEE MultiClient Architecture](/img/tee-multi-prover/tee_multiclient.png)
 
