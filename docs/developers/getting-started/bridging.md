@@ -23,7 +23,6 @@ Replace their OP Mainnet addresses with the ones below, and read [Withdrawals](#
 on this page instead of their timing and prove/finalize sections.
 
 :::caution TODO before publishing
-- Public L2 RPC and explorer URLs (placeholders).
 - Supported ERC-20 token pairs (placeholder below).
 :::
 
@@ -32,22 +31,24 @@ on this page instead of their timing and prove/finalize sections.
 | | Puffer UniFi Sepolia |
 |---|---|
 | L1 | Sepolia (chain ID `11155111`) |
-| L2 chain ID | `396776558` |
+| L2 chain ID | `396776559` |
 | L2 block time | 2 s |
-| L2 RPC | `TODO` |
-| L2 explorer | `TODO` |
+| L2 RPC | `https://testnet-sepolia-unifi-rpc.puffer.fi` (HTTPS only, no WebSocket) |
+| L2 explorer | [testnet-sepolia-unifi-explorer.puffer.fi](https://testnet-sepolia-unifi-explorer.puffer.fi) |
+| L1 explorer | [sepolia.etherscan.io](https://sepolia.etherscan.io) |
 
 ### L1 contracts (Sepolia)
 
 | Contract | Address |
 |---|---|
-| L1StandardBridge | `0x4f2e667d13b6969558547d8829c8a90f3148492d` |
-| L1CrossDomainMessenger | `0xc42591636f0d84406a39c023c5bcd42be8b148e3` |
-| OptimismPortal | `0x8ddfabcac49206e8488a22f4f3803f19a4e572e0` |
-| DisputeGameFactory | `0xeb8461c8d057f961aeae5c0b26e7361713a93f65` |
-| AnchorStateRegistry | `0xe80154907202b137ebc1e5058a4270526ee98a24` |
-| OptimismMintableERC20Factory | `0xc9902f90249e25f12f67beec0a8f2fce8693826d` |
-| L1ERC721Bridge | `0x18a63571d0a86fd6dc7c53c8fffc737fab5e9288` |
+| L1StandardBridge | `0x29ada3191032ac82aa69f73fa40eb1d6991a6699` |
+| L1CrossDomainMessenger | `0x222ab02e8c86c170faa44803298662e63251272b` |
+| OptimismPortal | `0x31d6c448e1f602ae02c30260e090f999e27d643b` |
+| DisputeGameFactory | `0xd47c03e49432faee2a80ad5204f9aa777c89aa08` |
+| AnchorStateRegistry | `0xdf841d3287631a226040b394c0c4483e9a6df791` |
+| OptimismMintableERC20Factory | `0x70082ba1fc1ade4a7024b9ec3cd0d800eeef5fea` |
+| SystemConfig | `0xd52f98e739695963f2e324a15e79d893a2c0a016` |
+| L1ERC721Bridge | `0xa3b60226a704d833ce0fd0248d970791767e8e2e` |
 
 ### L2 contracts
 
@@ -85,7 +86,7 @@ Call the L1 contracts exactly as on any OP Stack chain:
 Example with Foundry's `cast`, depositing 0.1 ETH on Puffer UniFi Sepolia:
 
 ```bash
-cast send 0x4f2e667d13b6969558547d8829c8a90f3148492d \
+cast send 0x29ada3191032ac82aa69f73fa40eb1d6991a6699 \
   "bridgeETHTo(address,uint32,bytes)" $RECIPIENT 200000 0x \
   --value 0.1ether --rpc-url $SEPOLIA_RPC --private-key $KEY
 ```
