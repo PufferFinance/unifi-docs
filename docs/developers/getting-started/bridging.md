@@ -24,8 +24,7 @@ Replace their OP Mainnet addresses with the ones below, and read [Withdrawals](#
 on this page instead of their timing and prove/finalize sections.
 
 :::caution TODO before publishing
-- Supported ERC-20 token pairs (placeholder below).
-- Withdrawal service URL and the `WithdrawalHelper` / `WithdrawalRelayer` addresses (placeholders below).
+- Withdrawal service URL (placeholder below): the service is not reachable from outside the operator's network yet.
 :::
 
 ## Network
@@ -72,7 +71,9 @@ returns the L1 token before you bridge to it.
 
 | Token | L1 address | L2 address |
 |---|---|---|
-| `TODO` | | |
+| ETH | native | native |
+
+No ERC-20 pairs are published for the Sepolia testnet yet; the bridge indexes ETH only.
 
 ## Deposits (L1 → L2)
 
@@ -116,8 +117,8 @@ for you.
 | | Puffer UniFi Sepolia |
 |---|---|
 | Withdrawal service (JSON-RPC, `sc` namespace) | `TODO` |
-| WithdrawalHelper (L2) | `TODO` |
-| WithdrawalRelayer (L1) | `TODO` |
+| WithdrawalHelper (L2) | `0x23779ea36d29b7b40f2db06750aa8678779ab074` |
+| WithdrawalRelayer (L1) | `0xc4a073220587dca0abfb11ce995ed2437d5b4bd9` |
 
 The service is a JSON-RPC endpoint. A refusal is a JSON-RPC error whose `data` field is a short code
 (listed under each step); the `message` says what to change.
